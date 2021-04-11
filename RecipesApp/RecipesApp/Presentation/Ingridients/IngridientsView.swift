@@ -104,6 +104,7 @@ final class IngridientsViewController: UIViewController {
             handler?()
         })
         deleteAction.backgroundColor = .red
+        deleteAction.title = "Delete"
         return deleteAction
     }
     
