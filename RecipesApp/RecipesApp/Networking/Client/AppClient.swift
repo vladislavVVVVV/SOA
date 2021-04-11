@@ -9,11 +9,14 @@ import BrightFutures
 import Alamofire
 
 protocol AppClientProtocol {
-    //func getNews(category: String) -> Future<NewsSection, NetworkRequestError>
+    func getIngridients() -> Future<[Ingridient], NetworkRequestError>
 }
 
 final class AppClient: NetworkClient, AppClientProtocol {
-//    func getNews(category: String) -> Future<NewsSection, NetworkRequestError> {
-//        return performRequest(route: AppRouter.getNews(category: category))
-//    }
+    func getIngridients() -> Future<[Ingridient], NetworkRequestError> {
+        //return performRequest(route: AppRouter.getNews(category: category))
+        return Future { complition in
+            complition(.success([Ingridient(id: 1, name: "Мясо", proteins: 20, carbohydrates: 2, fats: 50), Ingridient(id: 2, name: "Банан", proteins: 100, carbohydrates: 2, fats: 20), Ingridient(id: 3, name: "Гуава", proteins: 2, carbohydrates: 3, fats: 50)]))
+        }
+    }
 }

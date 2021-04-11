@@ -13,8 +13,12 @@ final class AppContainer {
     func prepareNewsTabBarController() -> MainTabBarController {
         return MainTabBarController()
     }
-
-//    func prepareViewNewsViewModel(news: News) -> ViewNewsViewModel {
-//        return ViewNewsViewModel(news: news, internetReachabilityManager: internetReachabilityManager)
-//    }
+    
+    func prepareIngridientsViewModel() -> IngridientsViewModel {
+        return IngridientsViewModel(appClient: appClient)
+    }
+    
+    func prepareIngridientViewModel(ingridient: Ingridient) -> IngridientViewModel {
+        return IngridientViewModel(ingridient: ingridient, appClient: appClient)
+    }
 }

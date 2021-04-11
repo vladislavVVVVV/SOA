@@ -18,23 +18,25 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.barTintColor = UIColor.Base.accent
+        //tabBar.tintColor = .clear
         setupTabBar()
     }
     
     private func setupTabBar() {
         var tabBarList = [UIViewController]()
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
-        vc.tabBarItem = prepareTabBarItemWith()
-        tabBarList.append(vc)
+        let ingridientViewController = IngridientsViewController(appContainer.prepareIngridientsViewModel())
+        let ingridientNavigationViewController = UINavigationController(rootViewController: ingridientViewController)
+        ingridientViewController.tabBarItem = prepareTabBarItemWith(title: "Ingridients")
+        tabBarList.append(ingridientNavigationViewController)
         viewControllers = tabBarList
         selectedIndex = 0
     }
     
-    private func prepareTabBarItemWith() -> UITabBarItem {
-        return UITabBarItem(title: "Ingridients",
-                            image: UIImage(),
-                            selectedImage: UIImage())
+    private func prepareTabBarItemWith(title: String) -> UITabBarItem {
+        return UITabBarItem(title: title,
+                            image: UIImage(named: "ingredients")?.withRenderingMode(.alwaysOriginal),
+                            selectedImage: UIImage(named: "ingredients-selected")?.withRenderingMode(.alwaysOriginal))
     }
 }
 
