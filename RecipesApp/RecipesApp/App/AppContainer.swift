@@ -25,4 +25,20 @@ final class AppContainer {
     func prepareCreateEditIngridient(state: IngridientState) -> CreateEditIngridientViewModel {
         return CreateEditIngridientViewModel(appClient: appClient, state: state)
     }
+    
+    func prepareMenuesViewModel() -> MenuesViewModel {
+        return MenuesViewModel(appClient: appClient)
+    }
+    
+    func prepareMenuViewModel(menu: Menu) -> MenuViewModel {
+        return MenuViewModel(menu: menu, appClient: appClient)
+    }
+    
+    func prepareCreateEditMenuViewModel(state: MenuState) -> CreateEditMenuViewModel {
+        return CreateEditMenuViewModel(appClient: appClient, state: state)
+    }
+    
+    func prepareChooseRecipesViewModel(menu: Menu? = nil) -> ChooseRecipeViewModel {
+        return ChooseRecipeViewModel(appClient: appClient, menu: menu)
+    }
 }

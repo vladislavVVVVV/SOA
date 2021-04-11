@@ -20,6 +20,18 @@
 		ED6E60BC2622F8D400405E44 /* NutritionalValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60BB2622F8D400405E44 /* NutritionalValueCell.swift */; };
 		ED6E60C2262315AA00405E44 /* CreateEditIngridientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60C1262315AA00405E44 /* CreateEditIngridientViewModel.swift */; };
 		ED6E60C6262315C400405E44 /* CreateEditIngridientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60C5262315C400405E44 /* CreateEditIngridientViewController.swift */; };
+		ED6E60C9262332D900405E44 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60C8262332D900405E44 /* Recipe.swift */; };
+		ED6E60CD2623343E00405E44 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60CC2623343E00405E44 /* Menu.swift */; };
+		ED6E60D42623354F00405E44 /* MenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60D32623354F00405E44 /* MenuesView.swift */; };
+		ED6E60D72623355B00405E44 /* MenuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60D62623355B00405E44 /* MenuesViewModel.swift */; };
+		ED6E60DA2623370100405E44 /* MenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60D92623370100405E44 /* MenueTableViewCell.swift */; };
+		ED6E60E126233A3B00405E44 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60E026233A3B00405E44 /* MenuView.swift */; };
+		ED6E60E526233A4700405E44 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60E426233A4700405E44 /* MenuViewModel.swift */; };
+		ED6E60E926233C8700405E44 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60E826233C8700405E44 /* RecipeTableViewCell.swift */; };
+		ED6E60ED26233EDB00405E44 /* CreateEditMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60EC26233EDB00405E44 /* CreateEditMenuView.swift */; };
+		ED6E60F026233EEF00405E44 /* CreateEditMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60EF26233EEF00405E44 /* CreateEditMenuViewModel.swift */; };
+		ED6E60F42623434300405E44 /* ChooseRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60F32623434300405E44 /* ChooseRecipeView.swift */; };
+		ED6E60F72623435100405E44 /* ChooseRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60F62623435100405E44 /* ChooseRecipeViewModel.swift */; };
 		ED7BEE31261CCF8D0072E616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE30261CCF8D0072E616 /* AppDelegate.swift */; };
 		ED7BEE3A261CCF930072E616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED7BEE39261CCF930072E616 /* Assets.xcassets */; };
 		ED7BEE3D261CCF930072E616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED7BEE3B261CCF930072E616 /* LaunchScreen.storyboard */; };
@@ -46,6 +58,18 @@
 		ED6E60BB2622F8D400405E44 /* NutritionalValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalValueCell.swift; sourceTree = "<group>"; };
 		ED6E60C1262315AA00405E44 /* CreateEditIngridientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditIngridientViewModel.swift; sourceTree = "<group>"; };
 		ED6E60C5262315C400405E44 /* CreateEditIngridientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditIngridientViewController.swift; sourceTree = "<group>"; };
+		ED6E60C8262332D900405E44 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		ED6E60CC2623343E00405E44 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		ED6E60D32623354F00405E44 /* MenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuesView.swift; sourceTree = "<group>"; };
+		ED6E60D62623355B00405E44 /* MenuesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuesViewModel.swift; sourceTree = "<group>"; };
+		ED6E60D92623370100405E44 /* MenueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenueTableViewCell.swift; sourceTree = "<group>"; };
+		ED6E60E026233A3B00405E44 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		ED6E60E426233A4700405E44 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		ED6E60E826233C8700405E44 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		ED6E60EC26233EDB00405E44 /* CreateEditMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditMenuView.swift; sourceTree = "<group>"; };
+		ED6E60EF26233EEF00405E44 /* CreateEditMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditMenuViewModel.swift; sourceTree = "<group>"; };
+		ED6E60F32623434300405E44 /* ChooseRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRecipeView.swift; sourceTree = "<group>"; };
+		ED6E60F62623435100405E44 /* ChooseRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRecipeViewModel.swift; sourceTree = "<group>"; };
 		ED7BEE2D261CCF8D0072E616 /* RecipesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED7BEE30261CCF8D0072E616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED7BEE39261CCF930072E616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,11 +122,13 @@
 			path = Ingridients;
 			sourceTree = "<group>";
 		};
-		ED6E60972622EA5300405E44 /* Menu */ = {
+		ED6E60972622EA5300405E44 /* Menues */ = {
 			isa = PBXGroup;
 			children = (
+				ED6E60D32623354F00405E44 /* MenuesView.swift */,
+				ED6E60D62623355B00405E44 /* MenuesViewModel.swift */,
 			);
-			path = Menu;
+			path = Menues;
 			sourceTree = "<group>";
 		};
 		ED6E60A02622EBFF00405E44 /* Common */ = {
@@ -118,6 +144,8 @@
 			children = (
 				ED6E60A62622EE9400405E44 /* IngridientTableViewCell.swift */,
 				ED6E60BB2622F8D400405E44 /* NutritionalValueCell.swift */,
+				ED6E60D92623370100405E44 /* MenueTableViewCell.swift */,
+				ED6E60E826233C8700405E44 /* RecipeTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -148,6 +176,33 @@
 				ED6E60C5262315C400405E44 /* CreateEditIngridientViewController.swift */,
 			);
 			path = CreateEditIngridientView;
+			sourceTree = "<group>";
+		};
+		ED6E60DF26233A2300405E44 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				ED6E60E026233A3B00405E44 /* MenuView.swift */,
+				ED6E60E426233A4700405E44 /* MenuViewModel.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		ED6E60EB26233EB700405E44 /* CreateEditMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				ED6E60EC26233EDB00405E44 /* CreateEditMenuView.swift */,
+				ED6E60EF26233EEF00405E44 /* CreateEditMenuViewModel.swift */,
+			);
+			path = CreateEditMenuView;
+			sourceTree = "<group>";
+		};
+		ED6E60F22623432600405E44 /* ChooseRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				ED6E60F32623434300405E44 /* ChooseRecipeView.swift */,
+				ED6E60F62623435100405E44 /* ChooseRecipeViewModel.swift */,
+			);
+			path = ChooseRecipe;
 			sourceTree = "<group>";
 		};
 		ED7BEE24261CCF8C0072E616 = {
@@ -212,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				ED6E60A32622EDD000405E44 /* Ingridient.swift */,
+				ED6E60C8262332D900405E44 /* Recipe.swift */,
+				ED6E60CC2623343E00405E44 /* Menu.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -246,10 +303,13 @@
 		ED7BEE69261CD2A10072E616 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				ED6E60F22623432600405E44 /* ChooseRecipe */,
+				ED6E60EB26233EB700405E44 /* CreateEditMenuView */,
+				ED6E60DF26233A2300405E44 /* Menu */,
 				ED6E60C02623157300405E44 /* CreateEditIngridientView */,
 				ED6E60B32622F6AF00405E44 /* Ingridient */,
 				ED6E60A02622EBFF00405E44 /* Common */,
-				ED6E60972622EA5300405E44 /* Menu */,
+				ED6E60972622EA5300405E44 /* Menues */,
 				ED6E60962622EA4600405E44 /* Ingridients */,
 				ED7BEE6A261CD2B70072E616 /* MainTabBarController.swift */,
 			);
@@ -370,24 +430,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED7BEE31261CCF8D0072E616 /* AppDelegate.swift in Sources */,
+				ED6E60D72623355B00405E44 /* MenuesViewModel.swift in Sources */,
 				ED6E60AE2622F33900405E44 /* UIViewController+Extension.swift in Sources */,
 				ED7BEE58261CD1410072E616 /* AppContainer.swift in Sources */,
 				ED7BEE67261CD2200072E616 /* AppRouter.swift in Sources */,
+				ED6E60ED26233EDB00405E44 /* CreateEditMenuView.swift in Sources */,
 				ED6E60992622EB5100405E44 /* IngridientsView.swift in Sources */,
+				ED6E60F026233EEF00405E44 /* CreateEditMenuViewModel.swift in Sources */,
 				ED6E60A42622EDD000405E44 /* Ingridient.swift in Sources */,
 				ED6E60BC2622F8D400405E44 /* NutritionalValueCell.swift in Sources */,
 				ED6E609D2622EB6300405E44 /* IngridientsViewModel.swift in Sources */,
+				ED6E60C9262332D900405E44 /* Recipe.swift in Sources */,
+				ED6E60E126233A3B00405E44 /* MenuView.swift in Sources */,
 				ED6E60B12622F37100405E44 /* UIColor+Extension.swift in Sources */,
+				ED6E60E926233C8700405E44 /* RecipeTableViewCell.swift in Sources */,
 				ED7BEE6B261CD2B70072E616 /* MainTabBarController.swift in Sources */,
+				ED6E60D42623354F00405E44 /* MenuesView.swift in Sources */,
 				ED6E60AB2622F05E00405E44 /* UITableViewCell+Extension.swift in Sources */,
+				ED6E60CD2623343E00405E44 /* Menu.swift in Sources */,
 				ED6E60B52622F73000405E44 /* IngridientView.swift in Sources */,
+				ED6E60DA2623370100405E44 /* MenueTableViewCell.swift in Sources */,
 				ED6E60A72622EE9400405E44 /* IngridientTableViewCell.swift in Sources */,
 				ED6E60C2262315AA00405E44 /* CreateEditIngridientViewModel.swift in Sources */,
 				ED7BEE64261CD1E70072E616 /* NetworkRouter.swift in Sources */,
 				ED6E60C6262315C400405E44 /* CreateEditIngridientViewController.swift in Sources */,
 				ED6E60B92622F73E00405E44 /* IngridientViewModel.swift in Sources */,
+				ED6E60E526233A4700405E44 /* MenuViewModel.swift in Sources */,
 				ED7BEE61261CD1BC0072E616 /* AppClient.swift in Sources */,
+				ED6E60F72623435100405E44 /* ChooseRecipeViewModel.swift in Sources */,
 				ED7BEE5D261CD1980072E616 /* NetworkClient.swift in Sources */,
+				ED6E60F42623434300405E44 /* ChooseRecipeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
