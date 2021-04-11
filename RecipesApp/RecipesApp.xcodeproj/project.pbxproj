@@ -18,6 +18,8 @@
 		ED6E60B52622F73000405E44 /* IngridientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60B42622F73000405E44 /* IngridientView.swift */; };
 		ED6E60B92622F73E00405E44 /* IngridientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60B82622F73E00405E44 /* IngridientViewModel.swift */; };
 		ED6E60BC2622F8D400405E44 /* NutritionalValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60BB2622F8D400405E44 /* NutritionalValueCell.swift */; };
+		ED6E60C2262315AA00405E44 /* CreateEditIngridientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60C1262315AA00405E44 /* CreateEditIngridientViewModel.swift */; };
+		ED6E60C6262315C400405E44 /* CreateEditIngridientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60C5262315C400405E44 /* CreateEditIngridientViewController.swift */; };
 		ED7BEE31261CCF8D0072E616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE30261CCF8D0072E616 /* AppDelegate.swift */; };
 		ED7BEE3A261CCF930072E616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED7BEE39261CCF930072E616 /* Assets.xcassets */; };
 		ED7BEE3D261CCF930072E616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED7BEE3B261CCF930072E616 /* LaunchScreen.storyboard */; };
@@ -42,6 +44,8 @@
 		ED6E60B42622F73000405E44 /* IngridientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientView.swift; sourceTree = "<group>"; };
 		ED6E60B82622F73E00405E44 /* IngridientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientViewModel.swift; sourceTree = "<group>"; };
 		ED6E60BB2622F8D400405E44 /* NutritionalValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalValueCell.swift; sourceTree = "<group>"; };
+		ED6E60C1262315AA00405E44 /* CreateEditIngridientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditIngridientViewModel.swift; sourceTree = "<group>"; };
+		ED6E60C5262315C400405E44 /* CreateEditIngridientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditIngridientViewController.swift; sourceTree = "<group>"; };
 		ED7BEE2D261CCF8D0072E616 /* RecipesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED7BEE30261CCF8D0072E616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED7BEE39261CCF930072E616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +139,15 @@
 				ED6E60B82622F73E00405E44 /* IngridientViewModel.swift */,
 			);
 			path = Ingridient;
+			sourceTree = "<group>";
+		};
+		ED6E60C02623157300405E44 /* CreateEditIngridientView */ = {
+			isa = PBXGroup;
+			children = (
+				ED6E60C1262315AA00405E44 /* CreateEditIngridientViewModel.swift */,
+				ED6E60C5262315C400405E44 /* CreateEditIngridientViewController.swift */,
+			);
+			path = CreateEditIngridientView;
 			sourceTree = "<group>";
 		};
 		ED7BEE24261CCF8C0072E616 = {
@@ -233,6 +246,7 @@
 		ED7BEE69261CD2A10072E616 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				ED6E60C02623157300405E44 /* CreateEditIngridientView */,
 				ED6E60B32622F6AF00405E44 /* Ingridient */,
 				ED6E60A02622EBFF00405E44 /* Common */,
 				ED6E60972622EA5300405E44 /* Menu */,
@@ -368,7 +382,9 @@
 				ED6E60AB2622F05E00405E44 /* UITableViewCell+Extension.swift in Sources */,
 				ED6E60B52622F73000405E44 /* IngridientView.swift in Sources */,
 				ED6E60A72622EE9400405E44 /* IngridientTableViewCell.swift in Sources */,
+				ED6E60C2262315AA00405E44 /* CreateEditIngridientViewModel.swift in Sources */,
 				ED7BEE64261CD1E70072E616 /* NetworkRouter.swift in Sources */,
+				ED6E60C6262315C400405E44 /* CreateEditIngridientViewController.swift in Sources */,
 				ED6E60B92622F73E00405E44 /* IngridientViewModel.swift in Sources */,
 				ED7BEE61261CD1BC0072E616 /* AppClient.swift in Sources */,
 				ED7BEE5D261CD1980072E616 /* NetworkClient.swift in Sources */,

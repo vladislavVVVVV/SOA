@@ -21,4 +21,8 @@ final class AppContainer {
     func prepareIngridientViewModel(ingridient: Ingridient) -> IngridientViewModel {
         return IngridientViewModel(ingridient: ingridient, appClient: appClient)
     }
+    
+    func prepareCreateEditIngridient(state: IngridientState) -> CreateEditIngridientViewModel {
+        return CreateEditIngridientViewModel(appClient: appClient, state: state)
+    }
 }
