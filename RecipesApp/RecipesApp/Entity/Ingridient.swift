@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Ingridient {
+struct Ingridient: Equatable {
     let id: Int?
     let name: String?
     let proteins: Int?

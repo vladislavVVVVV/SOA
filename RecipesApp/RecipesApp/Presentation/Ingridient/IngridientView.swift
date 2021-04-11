@@ -19,6 +19,7 @@ class IngridientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLargeNavigationBarWith(title: ingridientViewModel.selectedIngridient.name ?? "Ingridient")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editItem))
         addSubviews()
         setupConstraints()
         tableView.isScrollEnabled = false
@@ -45,6 +46,12 @@ class IngridientViewController: UIViewController {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(250)
         }
+    }
+
+    @objc private func editItem() {
+        let viewModel = appContainer.prepareCreateEditIngridient(state: .edit(ingridient: ingridientViewModel.selectedIngridient))
+        let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
+        present(navigationViewController, animated: true, completion: nil)
     }
 }
 

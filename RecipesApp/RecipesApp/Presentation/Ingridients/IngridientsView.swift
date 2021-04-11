@@ -44,6 +44,7 @@ final class IngridientsViewController: UIViewController {
         super.viewDidLoad()
         // Get object of AppTabBarController.
         setupLargeNavigationBarWith(title: "Ingridients")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem))
         addSubviews()
         setupConstraints()
         setupRefreshControl()
@@ -83,12 +84,37 @@ final class IngridientsViewController: UIViewController {
         refreshControl.endRefreshing()
     }
     
+    @objc private func addNewItem() {
+        let viewModel = appContainer.prepareCreateEditIngridient(state: .create)
+        let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
+        present(navigationViewController, animated: true, completion: nil)
+    }
+    
     private func getIngridients() {
         ingridientsViewModel.getIngridients { [weak self] in
             guard let self = self else { return }
             self.tableView.reloadData()
         } failure: { (error) in
             print(error.localizedDescription)
+        }
+    }
+
+    private func setupDeleteAction(handler: (() -> Void)?) -> UIContextualAction {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil, handler: { _, _, _ in
+            handler?()
+        })
+        deleteAction.backgroundColor = .red
+        deleteAction.title = "Delete"
+        return deleteAction
+    }
+    
+    private func deleteIngridient(id: Int, indexPaths: [IndexPath]) {
+        ingridientsViewModel.deleteIngridient(id: id) { [weak self] in
+            guard let self = self else { return }
+            self.ingridientsViewModel.ingridients.remove(at: indexPaths[0].row)
+            self.tableView.deleteRows(at: indexPaths, with: .automatic)
+        } failure: { (error) in
+            print(error)
         }
     }
 }
@@ -114,5 +140,18 @@ extension IngridientsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = IngridientViewController(appContainer.prepareIngridientViewModel(ingridient: ingridientsViewModel.ingridients[indexPath.row]))
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    // Setup trailing swipes.
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath ) -> UISwipeActionsConfiguration? {
+        let deleteAction = setupDeleteAction { [weak self] in
+            guard let self = self else { return }
+            guard let id = self.ingridientsViewModel.ingridients[indexPath.row].id else {
+                return
+            }
+            self.deleteIngridient(id: id, indexPaths: [indexPath])
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
     }
 }

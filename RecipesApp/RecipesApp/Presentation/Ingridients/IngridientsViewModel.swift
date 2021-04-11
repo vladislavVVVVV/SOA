@@ -24,4 +24,12 @@ final class IngridientsViewModel {
             success()
         }
     }
+    
+    func deleteIngridient(id: Int, success: @escaping() -> Void, failure: @escaping(NetworkRequestError) -> Void) {
+        appClient.deleteIngridient(id: id).onSuccess { () in
+            success()
+        }.onFailure { (error) in
+            failure(error)
+        }
+    }
 }
