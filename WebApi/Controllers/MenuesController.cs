@@ -14,9 +14,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class MenuesController : ControllerBase
     {
-        
         private readonly RecipesContext _context;
-
         public MenuesController(RecipesContext context)
         {
             _context = context;
@@ -34,7 +32,7 @@ namespace WebApi.Controllers
         public async Task<ActionResult<Menue>> GetMenue(int id)
         {
             var menue = await _context.Menues
-                .FirstOrDefaultAsync(i => i.id == id);
+                .FirstOrDefaultAsync(i => i.MenueId == id);
 
             if (menue == null)
             {
@@ -51,14 +49,14 @@ namespace WebApi.Controllers
             _context.Menues.Add(menue);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMenue", new { id = menue.id }, menue);
+            return CreatedAtAction("GetMenue", new { id = menue.MenueId }, menue);
         }
 
         // PUT: api/Menues/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMenue(int id, Menue menue)
         {
-            if (id != menue.id)
+            if (id != menue.MenueId)
             {
                 return BadRequest();
             }
@@ -102,7 +100,7 @@ namespace WebApi.Controllers
     
         private bool Exists(int id)
         {
-            return _context.Menues.Any(e => e.id == id);
+            return _context.Menues.Any(e => e.MenueId == id);
         }
     }
 

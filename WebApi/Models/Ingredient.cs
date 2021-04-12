@@ -1,15 +1,14 @@
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 namespace WebApi.Models {
 
     public class Ingredient {
-
         [Key]
-        public int id { get; set; }
-        public string name { get; set; }
-        public int proteins { get; set; }
-        public int carbohydrates { get; set; }
-        public int fats { get; set; }
-    }
+        public int IngredientId { get; set; }
+        public string Name { get; set; }
+        public int Proteins { get; set; }
+        public int Carbohydrates { get; set; }
+        public int Fats { get; set; }
+        } 
 
 }

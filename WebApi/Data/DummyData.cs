@@ -35,9 +35,9 @@ namespace WebApi.Data
         public static List<Ingredient> GetIngredients()
         {
             List<Ingredient> ingredients = new List<Ingredient>() {
-            new Ingredient {name = "TestName 1", proteins = 100, carbohydrates = 1, fats = 120},
-            new Ingredient {name = "TestName 2", proteins = 10, carbohydrates = 10, fats = 130},
-            new Ingredient {name = "TestName 3", proteins = 10, carbohydrates = 100, fats = 130},
+            new Ingredient {Name = "TestName 1", Proteins = 100, Carbohydrates = 1, Fats = 120},
+            new Ingredient {Name = "TestName 2", Proteins = 10, Carbohydrates = 10, Fats = 130},
+            new Ingredient {Name = "TestName 3", Proteins = 10, Carbohydrates = 100, Fats = 130},
             };
             return ingredients;
         }
@@ -46,16 +46,16 @@ namespace WebApi.Data
         {
             List<Recipe> recipes = new List<Recipe>() {
             new Recipe {
-                name = "TestName 1",
-                ingredients = new List<Ingredient>(db.Ingredients.Take(2))
+                Name = "TestName 1",
+                Ingredients = new List<Ingredient>(db.Ingredients.Take(2))
             },
             new Recipe {
-                name = "TestName 2",
-                ingredients = new List<Ingredient>(db.Ingredients.OrderBy(m => m.name).Skip(1).Take(2))
+                Name = "TestName 2",
+                Ingredients = new List<Ingredient>(db.Ingredients.OrderBy(m => m.Name).Skip(1).Take(2))
             },
             new Recipe {
-                name = "TestName 3",
-                ingredients = new List<Ingredient>(db.Ingredients.OrderBy(m => m.fats).Take(2))
+                Name = "TestName 3",
+                Ingredients = new List<Ingredient>(db.Ingredients.OrderBy(m => m.Fats).Take(2))
             },
             };
             return recipes;
@@ -65,16 +65,16 @@ namespace WebApi.Data
         {
             List<Menue> menues = new List<Menue>() {
             new Menue {
-                name = "TestName 1",
-                recipes = new List<Recipe>(db.Recipes.Take(2))
+                Name = "TestName 1",
+                Recipes = new List<Recipe>(db.Recipes.Take(2))
             },
             new Menue {
-                name = "TestName 2",
-                recipes = new List<Recipe>(db.Recipes.OrderBy(m => m.name).Skip(1).Take(2))
+                Name = "TestName 2",
+                Recipes = new List<Recipe>(db.Recipes.OrderBy(m => m.Name).Skip(1).Take(2))
             },
             new Menue {
-                name = "TestName 3",
-                recipes = new List<Recipe>(db.Recipes.OrderBy(m => m.name).Take(2))
+                Name = "TestName 3",
+                Recipes = new List<Recipe>(db.Recipes.OrderBy(m => m.Name).Take(2))
             },
             };
             return menues;

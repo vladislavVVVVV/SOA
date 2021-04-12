@@ -10,7 +10,7 @@ using WebApi.Data;
 namespace WebApi.Data.Migrations
 {
     [DbContext(typeof(RecipesContext))]
-    [Migration("20210411232501_M1")]
+    [Migration("20210412124832_M1")]
     partial class M1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,67 +23,67 @@ namespace WebApi.Data.Migrations
 
             modelBuilder.Entity("WebApi.Models.Ingredient", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("IngredientId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Recipeid")
+                    b.Property<int>("Carbohydrates")
                         .HasColumnType("int");
 
-                    b.Property<int>("carbohydrates")
+                    b.Property<int>("Fats")
                         .HasColumnType("int");
 
-                    b.Property<int>("fats")
-                        .HasColumnType("int");
-
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<int>("proteins")
+                    b.Property<int>("Proteins")
                         .HasColumnType("int");
 
-                    b.HasKey("id");
+                    b.Property<int?>("RecipeId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Recipeid");
+                    b.HasKey("IngredientId");
+
+                    b.HasIndex("RecipeId");
 
                     b.ToTable("Ingredients");
                 });
 
             modelBuilder.Entity("WebApi.Models.Menue", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("MenueId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.HasKey("id");
+                    b.HasKey("MenueId");
 
                     b.ToTable("Menues");
                 });
 
             modelBuilder.Entity("WebApi.Models.Recipe", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("RecipeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Menueid")
+                    b.Property<int?>("MenueId")
                         .HasColumnType("int");
 
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.HasKey("id");
+                    b.HasKey("RecipeId");
 
-                    b.HasIndex("Menueid");
+                    b.HasIndex("MenueId");
 
                     b.ToTable("Recipes");
                 });
@@ -91,25 +91,25 @@ namespace WebApi.Data.Migrations
             modelBuilder.Entity("WebApi.Models.Ingredient", b =>
                 {
                     b.HasOne("WebApi.Models.Recipe", null)
-                        .WithMany("ingredients")
-                        .HasForeignKey("Recipeid");
+                        .WithMany("Ingredients")
+                        .HasForeignKey("RecipeId");
                 });
 
             modelBuilder.Entity("WebApi.Models.Recipe", b =>
                 {
                     b.HasOne("WebApi.Models.Menue", null)
-                        .WithMany("recipes")
-                        .HasForeignKey("Menueid");
+                        .WithMany("Recipes")
+                        .HasForeignKey("MenueId");
                 });
 
             modelBuilder.Entity("WebApi.Models.Menue", b =>
                 {
-                    b.Navigation("recipes");
+                    b.Navigation("Recipes");
                 });
 
             modelBuilder.Entity("WebApi.Models.Recipe", b =>
                 {
-                    b.Navigation("ingredients");
+                    b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618
         }

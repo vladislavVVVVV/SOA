@@ -34,7 +34,7 @@ namespace WebApi.Controllers
         public async Task<ActionResult<Recipe>> GetRecipes(int id)
         {
             var Recipes = await _context.Recipes
-                .FirstOrDefaultAsync(i => i.id == id);
+                .FirstOrDefaultAsync(i => i.RecipeId == id);
 
             if (Recipes == null)
             {
@@ -51,14 +51,14 @@ namespace WebApi.Controllers
             _context.Recipes.Add(recipe);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRecipes", new { id = recipe.id }, recipe);
+            return CreatedAtAction("GetRecipes", new { id = recipe.RecipeId }, recipe);
         }
 
         // PUT: api/Recipes/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRecipes(int id, Recipe recipe)
         {
-            if (id != recipe.id)
+            if (id != recipe.RecipeId)
             {
                 return BadRequest();
             }
@@ -102,7 +102,7 @@ namespace WebApi.Controllers
     
         private bool Exists(int id)
         {
-            return _context.Recipes.Any(e => e.id == id);
+            return _context.Recipes.Any(e => e.RecipeId == id);
         }
     }
 }

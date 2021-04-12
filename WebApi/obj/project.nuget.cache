@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x4QB4iX5xrH4WKKf1kboc14La/ediTpEQXj33EezQ9eHxZd6UkGNMB1UkNiOdZpCHC199eh1kbfraIGaVuVhqQ==",
+  "dgSpecHash": "+jHNzxDYXmVir9xw2BKwX8yYP7Dt47E9g/JNAppANbRsE6iPyp3z2sKLXvc29HoZF9DVgKlVfSJEtiNL0qwcAQ==",
   "success": true,
-  "projectFilePath": "/Users/ilya_valevich/Desktop/Not Work/Soarh/WebApi/WebApi.csproj",
+  "projectFilePath": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/WebApi.csproj",
   "expectedPackageFiles": [
     "/Users/ilya_valevich/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/ilya_valevich/.nuget/packages/microsoft.aspnetcore.html.abstractions/2.2.0/microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

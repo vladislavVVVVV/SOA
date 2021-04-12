@@ -6,9 +6,9 @@ namespace WebApi.Data
     public RecipesContext(DbContextOptions options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder builder) {
-        builder.Entity<Ingredient>().Property(p => p.name).HasMaxLength(40);
-        builder.Entity<Recipe>().Property(p => p.name).HasMaxLength(40);
-        builder.Entity<Menue>().Property(p => p.name).HasMaxLength(40);
+        builder.Entity<Ingredient>().Property(p => p.Name).HasMaxLength(40);
+        builder.Entity<Recipe>().Property(p => p.Name).HasMaxLength(40);
+        builder.Entity<Menue>().Property(p => p.Name).HasMaxLength(40);
 
         builder.Entity<Ingredient>().ToTable("Ingredients");
         builder.Entity<Recipe>().ToTable("Recipes");

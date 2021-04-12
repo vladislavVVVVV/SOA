@@ -10,32 +10,32 @@ namespace WebApi.Data.Migrations
                 name: "Menues",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    MenueId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Menues", x => x.id);
+                    table.PrimaryKey("PK_Menues", x => x.MenueId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Recipes",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    RecipeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
-                    Menueid = table.Column<int>(type: "int", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
+                    MenueId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Recipes", x => x.id);
+                    table.PrimaryKey("PK_Recipes", x => x.RecipeId);
                     table.ForeignKey(
-                        name: "FK_Recipes_Menues_Menueid",
-                        column: x => x.Menueid,
+                        name: "FK_Recipes_Menues_MenueId",
+                        column: x => x.MenueId,
                         principalTable: "Menues",
-                        principalColumn: "id",
+                        principalColumn: "MenueId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -43,34 +43,34 @@ namespace WebApi.Data.Migrations
                 name: "Ingredients",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    IngredientId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
-                    proteins = table.Column<int>(type: "int", nullable: false),
-                    carbohydrates = table.Column<int>(type: "int", nullable: false),
-                    fats = table.Column<int>(type: "int", nullable: false),
-                    Recipeid = table.Column<int>(type: "int", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
+                    Proteins = table.Column<int>(type: "int", nullable: false),
+                    Carbohydrates = table.Column<int>(type: "int", nullable: false),
+                    Fats = table.Column<int>(type: "int", nullable: false),
+                    RecipeId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ingredients", x => x.id);
+                    table.PrimaryKey("PK_Ingredients", x => x.IngredientId);
                     table.ForeignKey(
-                        name: "FK_Ingredients_Recipes_Recipeid",
-                        column: x => x.Recipeid,
+                        name: "FK_Ingredients_Recipes_RecipeId",
+                        column: x => x.RecipeId,
                         principalTable: "Recipes",
-                        principalColumn: "id",
+                        principalColumn: "RecipeId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ingredients_Recipeid",
+                name: "IX_Ingredients_RecipeId",
                 table: "Ingredients",
-                column: "Recipeid");
+                column: "RecipeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Recipes_Menueid",
+                name: "IX_Recipes_MenueId",
                 table: "Recipes",
-                column: "Menueid");
+                column: "MenueId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
