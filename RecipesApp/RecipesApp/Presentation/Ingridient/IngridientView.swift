@@ -26,6 +26,10 @@ class IngridientViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     // The object View Model which comes to the init.
     required init(_ ingridientViewModel: IngridientViewModel) {
@@ -50,6 +54,7 @@ class IngridientViewController: UIViewController {
 
     @objc private func editItem() {
         let viewModel = appContainer.prepareCreateEditIngridient(state: .edit(ingridient: ingridientViewModel.selectedIngridient))
+        viewModel.delegate = self
         let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
         present(navigationViewController, animated: true, completion: nil)
     }
@@ -87,3 +92,14 @@ extension IngridientViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension IngridientViewController: CreateEditIngridientDelegate {
+    func update() {
+        ingridientViewModel.getIngridient(id: ingridientViewModel.selectedIngridient.ingredientId ?? 0) { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        } failure: { [weak self] (error) in
+            guard let self = self else { return }
+            self.showDefaultErrorAlert()
+        }
+    }
+}

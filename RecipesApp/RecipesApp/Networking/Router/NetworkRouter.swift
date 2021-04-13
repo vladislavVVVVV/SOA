@@ -10,20 +10,36 @@ import Alamofire
 
 struct Server {
     struct Production {
-        static let baseURL = "https://api.nytimes.com/svc/topstories/v2/"
+        static let baseURL = "http://localhost:5000/"
     }
     
     struct PathComponent {
-        static let json = ".json"
+        static let api = "api"
+        
+        static let auth = "AuthManagement"
+        static let register = "Register"
+        static let login = "Login"
+        
+        static let ingredient = "Ingredient"
+        static let menues = "Menues"
+        static let recipes = "Recipes"
     }
 }
 
 enum HTTPHeaderField: String {
     case contentType = "Content-Type"
+    case authorizationToken = "Authorization"
 }
 
+// Enum of header values.
 enum ContentType: String {
     case json = "application/json;charset=UTF-8"
+    case formUrlencoded = "application/x-www-form-urlencoded"
+}
+
+// Enum of authorization details.
+enum AuthorizationDetails: String {
+    case tokenType = "Bearer"
 }
 
 protocol NetworkRouter: URLRequestConvertible {
@@ -38,12 +54,7 @@ extension NetworkRouter {
     func asURLRequest() throws -> URLRequest {
         let url = try Server.Production.baseURL.asURL()
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        
-        var queryItems: [URLQueryItem] = []
-        let queryItem = URLQueryItem(name: "api-key", value: "CJQwe50hGvB8SbFRuiAFKvfYbkye5zjt")
-        queryItems.append(queryItem)
-        urlComponents?.queryItems = queryItems
-        
+
         guard let urlFromComponents = urlComponents?.url else {
             throw AFError.parameterEncodingFailed(reason: .missingURL)
         }

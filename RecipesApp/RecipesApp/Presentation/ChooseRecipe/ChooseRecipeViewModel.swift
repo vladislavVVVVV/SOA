@@ -41,7 +41,7 @@ final class ChooseRecipeViewModel {
         }
         var isContain = false
         for recipe in recipes {
-            if self.recipes[indexPath].id == recipe.id {
+            if self.recipes[indexPath].recipeId == recipe.recipeId {
                 isContain = true
             }
         }

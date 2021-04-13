@@ -45,6 +45,7 @@ final class MenuesViewController: UIViewController {
         // Get object of AppTabBarController.
         setupLargeNavigationBarWith(title: "Menues")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         addSubviews()
         setupConstraints()
         setupRefreshControl()
@@ -88,6 +89,12 @@ final class MenuesViewController: UIViewController {
         let viewModel = appContainer.prepareCreateEditMenuViewModel(state: .create)
         let viewController = CreateEditMenuViewController(viewModel)
         navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    @objc private func logout() {
+        menuesViewModel.logout {
+            tabBarController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     private func getMenues() {
@@ -146,7 +153,7 @@ extension MenuesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath ) -> UISwipeActionsConfiguration? {
         let deleteAction = setupDeleteAction { [weak self] in
             guard let self = self else { return }
-            guard let id = self.menuesViewModel.menues[indexPath.row].id else {
+            guard let id = self.menuesViewModel.menues[indexPath.row].menueId else {
                 return
             }
             self.deleteMenues(id: id, indexPaths: [indexPath])

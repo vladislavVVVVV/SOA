@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Recipe: Equatable {
-    let id: Int?
+struct Recipe: Equatable, Codable {
+    let recipeId: Int?
     let name: String?
-    let description: String?
-    let ingridients: [Ingridient]?
+    let ingredients: [Ingridient]?
 }

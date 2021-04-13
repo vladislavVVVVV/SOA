@@ -30,7 +30,7 @@ final class CreateEditMenuViewModel {
                 failure(error)
             }
         case .edit(let menu):
-            appClient.editMenue(with: menu.id ?? 0, name: name, idRecipes: ids).onSuccess { () in
+            appClient.editMenue(with: menu.menueId ?? 0, name: name, idRecipes: ids).onSuccess { () in
                 success()
             }.onFailure { (error) in
                 failure(error)

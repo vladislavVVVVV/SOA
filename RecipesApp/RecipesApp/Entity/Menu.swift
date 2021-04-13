@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Menu: Equatable {
-    let id: Int?
+struct Menu: Equatable, Codable {
+    let menueId: Int?
     let name: String?
     let recipes: [Recipe]?
 }

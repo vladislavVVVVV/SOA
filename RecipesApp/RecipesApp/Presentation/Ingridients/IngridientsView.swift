@@ -45,6 +45,7 @@ final class IngridientsViewController: UIViewController {
         // Get object of AppTabBarController.
         setupLargeNavigationBarWith(title: "Ingridients")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         addSubviews()
         setupConstraints()
         setupRefreshControl()
@@ -86,8 +87,15 @@ final class IngridientsViewController: UIViewController {
     
     @objc private func addNewItem() {
         let viewModel = appContainer.prepareCreateEditIngridient(state: .create)
+        viewModel.delegate = self
         let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
         present(navigationViewController, animated: true, completion: nil)
+    }
+    
+    @objc private func logout() {
+        ingridientsViewModel.logout {
+            tabBarController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     private func getIngridients() {
@@ -146,12 +154,18 @@ extension IngridientsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath ) -> UISwipeActionsConfiguration? {
         let deleteAction = setupDeleteAction { [weak self] in
             guard let self = self else { return }
-            guard let id = self.ingridientsViewModel.ingridients[indexPath.row].id else {
+            guard let id = self.ingridientsViewModel.ingridients[indexPath.row].ingredientId else {
                 return
             }
             self.deleteIngridient(id: id, indexPaths: [indexPath])
         }
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
+    }
+}
+
+extension IngridientsViewController: CreateEditIngridientDelegate {
+    func update() {
+        getIngridients()
     }
 }

@@ -9231,23 +9231,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/ilya_valevich/.nuget/packages/": {},
+    "/Users/uladzislauyaunevich/.nuget/packages/": {},
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/WebApi.csproj",
+      "projectUniqueName": "/Users/uladzislauyaunevich/Downloads/soarhProject8sem/SOA/WebApi/WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/WebApi.csproj",
-      "packagesPath": "/Users/ilya_valevich/.nuget/packages/",
-      "outputPath": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/obj/",
+      "projectPath": "/Users/uladzislauyaunevich/Downloads/soarhProject8sem/SOA/WebApi/WebApi.csproj",
+      "packagesPath": "/Users/uladzislauyaunevich/.nuget/packages/",
+      "outputPath": "/Users/uladzislauyaunevich/Downloads/soarhProject8sem/SOA/WebApi/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/ilya_valevich/.nuget/NuGet/NuGet.Config"
+        "/Users/uladzislauyaunevich/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

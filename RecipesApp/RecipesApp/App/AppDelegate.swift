@@ -14,9 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        let rootViewController = appContainer.prepareNewsTabBarController()
-        window?.rootViewController = rootViewController
+        if KeychainManager.shared.connectToken.accessToken != "" {
+            let login = LoginViewController(appContainer.prepareLoginViewModel())
+            let nav = UINavigationController(rootViewController: login)
+            let rootViewController = nav
+            window?.rootViewController = rootViewController
+            window?.makeKeyAndVisible()
+            let vcTabbar = MainTabBarController()
+            vcTabbar.modalPresentationStyle = .fullScreen
+            window?.rootViewController?.present(vcTabbar, animated: true, completion: nil)
+        } else {
+            let login = LoginViewController(appContainer.prepareLoginViewModel())
+            let nav = UINavigationController(rootViewController: login)
+            let rootViewController = nav
+            window?.rootViewController = rootViewController
+            window?.makeKeyAndVisible()
+        }
         return true
     }
 }

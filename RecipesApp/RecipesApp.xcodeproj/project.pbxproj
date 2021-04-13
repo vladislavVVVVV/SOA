@@ -32,6 +32,14 @@
 		ED6E60F026233EEF00405E44 /* CreateEditMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60EF26233EEF00405E44 /* CreateEditMenuViewModel.swift */; };
 		ED6E60F42623434300405E44 /* ChooseRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60F32623434300405E44 /* ChooseRecipeView.swift */; };
 		ED6E60F72623435100405E44 /* ChooseRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60F62623435100405E44 /* ChooseRecipeViewModel.swift */; };
+		ED6E61042625899800405E44 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E61032625899700405E44 /* LoginView.swift */; };
+		ED6E610826258CD300405E44 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E610726258CD300405E44 /* LoginViewModel.swift */; };
+		ED6E610B26258CE600405E44 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E610A26258CE600405E44 /* RegistrationView.swift */; };
+		ED6E610E26258CF900405E44 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E610D26258CF900405E44 /* RegistrationViewModel.swift */; };
+		ED6E61112625936300405E44 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E61102625936300405E44 /* UserManager.swift */; };
+		ED6E6114262595A300405E44 /* KeychanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E6113262595A300405E44 /* KeychanManager.swift */; };
+		ED6E61172625977700405E44 /* TokenExpiredInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E61162625977700405E44 /* TokenExpiredInterceptor.swift */; };
+		ED6E612226259A8000405E44 /* ConnectToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E612126259A8000405E44 /* ConnectToken.swift */; };
 		ED7BEE31261CCF8D0072E616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE30261CCF8D0072E616 /* AppDelegate.swift */; };
 		ED7BEE3A261CCF930072E616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED7BEE39261CCF930072E616 /* Assets.xcassets */; };
 		ED7BEE3D261CCF930072E616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED7BEE3B261CCF930072E616 /* LaunchScreen.storyboard */; };
@@ -41,6 +49,10 @@
 		ED7BEE64261CD1E70072E616 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE63261CD1E70072E616 /* NetworkRouter.swift */; };
 		ED7BEE67261CD2200072E616 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE66261CD2200072E616 /* AppRouter.swift */; };
 		ED7BEE6B261CD2B70072E616 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE6A261CD2B70072E616 /* MainTabBarController.swift */; };
+		EDF947AB2625A61D00C4CAE1 /* IngridientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF947AA2625A61D00C4CAE1 /* IngridientRequest.swift */; };
+		EDF947AE2625A62A00C4CAE1 /* MenuRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF947AD2625A62A00C4CAE1 /* MenuRequest.swift */; };
+		EDF947B12625A63800C4CAE1 /* RecipeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF947B02625A63800C4CAE1 /* RecipeRequest.swift */; };
+		EDF947B42625AB9200C4CAE1 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF947B32625AB9200C4CAE1 /* Token.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +82,14 @@
 		ED6E60EF26233EEF00405E44 /* CreateEditMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditMenuViewModel.swift; sourceTree = "<group>"; };
 		ED6E60F32623434300405E44 /* ChooseRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRecipeView.swift; sourceTree = "<group>"; };
 		ED6E60F62623435100405E44 /* ChooseRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRecipeViewModel.swift; sourceTree = "<group>"; };
+		ED6E61032625899700405E44 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		ED6E610726258CD300405E44 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		ED6E610A26258CE600405E44 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		ED6E610D26258CF900405E44 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		ED6E61102625936300405E44 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		ED6E6113262595A300405E44 /* KeychanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychanManager.swift; sourceTree = "<group>"; };
+		ED6E61162625977700405E44 /* TokenExpiredInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExpiredInterceptor.swift; sourceTree = "<group>"; };
+		ED6E612126259A8000405E44 /* ConnectToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToken.swift; sourceTree = "<group>"; };
 		ED7BEE2D261CCF8D0072E616 /* RecipesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED7BEE30261CCF8D0072E616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED7BEE39261CCF930072E616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +101,10 @@
 		ED7BEE63261CD1E70072E616 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		ED7BEE66261CD2200072E616 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		ED7BEE6A261CD2B70072E616 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		EDF947AA2625A61D00C4CAE1 /* IngridientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientRequest.swift; sourceTree = "<group>"; };
+		EDF947AD2625A62A00C4CAE1 /* MenuRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRequest.swift; sourceTree = "<group>"; };
+		EDF947B02625A63800C4CAE1 /* RecipeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRequest.swift; sourceTree = "<group>"; };
+		EDF947B32625AB9200C4CAE1 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FBEF6A6B44A4B29005F939B9 /* Pods_RecipesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,6 +229,33 @@
 			path = ChooseRecipe;
 			sourceTree = "<group>";
 		};
+		ED6E61002625896700405E44 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				ED6E61022625898400405E44 /* Login */,
+				ED6E61012625897500405E44 /* Registration */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		ED6E61012625897500405E44 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				ED6E610A26258CE600405E44 /* RegistrationView.swift */,
+				ED6E610D26258CF900405E44 /* RegistrationViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		ED6E61022625898400405E44 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				ED6E61032625899700405E44 /* LoginView.swift */,
+				ED6E610726258CD300405E44 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		ED7BEE24261CCF8C0072E616 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +310,8 @@
 		ED7BEE4D261CD04C0072E616 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				ED6E61102625936300405E44 /* UserManager.swift */,
+				ED6E6113262595A300405E44 /* KeychanManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -269,6 +322,11 @@
 				ED6E60A32622EDD000405E44 /* Ingridient.swift */,
 				ED6E60C8262332D900405E44 /* Recipe.swift */,
 				ED6E60CC2623343E00405E44 /* Menu.swift */,
+				ED6E612126259A8000405E44 /* ConnectToken.swift */,
+				EDF947AA2625A61D00C4CAE1 /* IngridientRequest.swift */,
+				EDF947AD2625A62A00C4CAE1 /* MenuRequest.swift */,
+				EDF947B02625A63800C4CAE1 /* RecipeRequest.swift */,
+				EDF947B32625AB9200C4CAE1 /* Token.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -287,6 +345,7 @@
 			children = (
 				ED7BEE5C261CD1980072E616 /* NetworkClient.swift */,
 				ED7BEE60261CD1BC0072E616 /* AppClient.swift */,
+				ED6E61162625977700405E44 /* TokenExpiredInterceptor.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -303,6 +362,7 @@
 		ED7BEE69261CD2A10072E616 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				ED6E61002625896700405E44 /* User */,
 				ED6E60F22623432600405E44 /* ChooseRecipe */,
 				ED6E60EB26233EB700405E44 /* CreateEditMenuView */,
 				ED6E60DF26233A2300405E44 /* Menu */,
@@ -431,24 +491,35 @@
 			files = (
 				ED7BEE31261CCF8D0072E616 /* AppDelegate.swift in Sources */,
 				ED6E60D72623355B00405E44 /* MenuesViewModel.swift in Sources */,
+				ED6E610826258CD300405E44 /* LoginViewModel.swift in Sources */,
 				ED6E60AE2622F33900405E44 /* UIViewController+Extension.swift in Sources */,
 				ED7BEE58261CD1410072E616 /* AppContainer.swift in Sources */,
+				ED6E610B26258CE600405E44 /* RegistrationView.swift in Sources */,
 				ED7BEE67261CD2200072E616 /* AppRouter.swift in Sources */,
+				ED6E6114262595A300405E44 /* KeychanManager.swift in Sources */,
 				ED6E60ED26233EDB00405E44 /* CreateEditMenuView.swift in Sources */,
 				ED6E60992622EB5100405E44 /* IngridientsView.swift in Sources */,
+				EDF947B42625AB9200C4CAE1 /* Token.swift in Sources */,
 				ED6E60F026233EEF00405E44 /* CreateEditMenuViewModel.swift in Sources */,
+				ED6E610E26258CF900405E44 /* RegistrationViewModel.swift in Sources */,
+				EDF947AE2625A62A00C4CAE1 /* MenuRequest.swift in Sources */,
 				ED6E60A42622EDD000405E44 /* Ingridient.swift in Sources */,
+				ED6E61172625977700405E44 /* TokenExpiredInterceptor.swift in Sources */,
 				ED6E60BC2622F8D400405E44 /* NutritionalValueCell.swift in Sources */,
 				ED6E609D2622EB6300405E44 /* IngridientsViewModel.swift in Sources */,
 				ED6E60C9262332D900405E44 /* Recipe.swift in Sources */,
 				ED6E60E126233A3B00405E44 /* MenuView.swift in Sources */,
 				ED6E60B12622F37100405E44 /* UIColor+Extension.swift in Sources */,
 				ED6E60E926233C8700405E44 /* RecipeTableViewCell.swift in Sources */,
+				ED6E61112625936300405E44 /* UserManager.swift in Sources */,
 				ED7BEE6B261CD2B70072E616 /* MainTabBarController.swift in Sources */,
+				EDF947B12625A63800C4CAE1 /* RecipeRequest.swift in Sources */,
 				ED6E60D42623354F00405E44 /* MenuesView.swift in Sources */,
 				ED6E60AB2622F05E00405E44 /* UITableViewCell+Extension.swift in Sources */,
+				EDF947AB2625A61D00C4CAE1 /* IngridientRequest.swift in Sources */,
 				ED6E60CD2623343E00405E44 /* Menu.swift in Sources */,
 				ED6E60B52622F73000405E44 /* IngridientView.swift in Sources */,
+				ED6E612226259A8000405E44 /* ConnectToken.swift in Sources */,
 				ED6E60DA2623370100405E44 /* MenueTableViewCell.swift in Sources */,
 				ED6E60A72622EE9400405E44 /* IngridientTableViewCell.swift in Sources */,
 				ED6E60C2262315AA00405E44 /* CreateEditIngridientViewModel.swift in Sources */,
@@ -459,6 +530,7 @@
 				ED7BEE61261CD1BC0072E616 /* AppClient.swift in Sources */,
 				ED6E60F72623435100405E44 /* ChooseRecipeViewModel.swift in Sources */,
 				ED7BEE5D261CD1980072E616 /* NetworkClient.swift in Sources */,
+				ED6E61042625899800405E44 /* LoginView.swift in Sources */,
 				ED6E60F42623434300405E44 /* ChooseRecipeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

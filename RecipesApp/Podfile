@@ -9,6 +9,7 @@ target 'RecipesApp' do
   pod 'Alamofire', '5.0.0-beta.3'
   pod 'BrightFutures'
   pod 'ReachabilitySwift'
+  pod 'KeychainSwift'
 
 
   # Pods for RecipesApp

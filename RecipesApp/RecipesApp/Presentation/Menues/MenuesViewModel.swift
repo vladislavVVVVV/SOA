@@ -11,10 +11,12 @@ import BrightFutures
 final class MenuesViewModel {
 
     private let appClient: AppClientProtocol
+    private let userManager: UserManager
     var menues = [Menu]()
 
-    init(appClient: AppClientProtocol) {
+    init(appClient: AppClientProtocol, userManager: UserManager) {
         self.appClient = appClient
+        self.userManager = userManager
     }
 
     func getMenues(success: @escaping() -> Void, failure: @escaping(NetworkRequestError) -> Void) {
@@ -31,5 +33,10 @@ final class MenuesViewModel {
         }.onFailure { (error) in
             failure(error)
         }
+    }
+    
+    func logout(complition: () -> Void) {
+        userManager.logout()
+        complition()
     }
 }

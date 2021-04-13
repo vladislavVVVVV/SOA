@@ -19,10 +19,11 @@ protocol NetworkClientProtocol {
 }
 
 class NetworkClient: NetworkClientProtocol {
+    let tockenInterceptor = TokenExpiredInterceptor()
     func performRequest<T: Decodable>(route: NetworkRouter,
                                       decoder: JSONDecoder = JSONDecoder()) -> Future<T, NetworkRequestError> {
         return Future { complete in
-            AF.request(route).validate().responseDecodable(decoder: decoder,
+            AF.request(route, interceptor: tockenInterceptor).validate().responseDecodable(decoder: decoder,
                                                            completionHandler: { (response: DataResponse<T>) in
                 if let error = response.error as? URLError, error.code == .notConnectedToInternet {
                     complete(.failure(.internetUnreachable))
@@ -42,7 +43,7 @@ class NetworkClient: NetworkClientProtocol {
     func performRequest(route: NetworkRouter,
                         decoder: JSONDecoder = JSONDecoder()) -> Future<Void, NetworkRequestError> {
         return Future { complete in
-            AF.request(route).validate().response { response in
+            AF.request(route, interceptor: tockenInterceptor).validate().response { response in
                 if let error = response.error as? URLError, error.code == .notConnectedToInternet {
                     complete(.failure(.internetUnreachable))
                     return
@@ -50,11 +51,12 @@ class NetworkClient: NetworkClientProtocol {
                 guard let statusCode = response.response?.statusCode else {
                     return complete(.failure(.unknownError))
                 }
-                guard statusCode != 200 else {
+                if statusCode == 200 || statusCode == 201 || statusCode == 204 {
                     complete(.success(Void()))
                     return
+                } else {
+                    complete(.failure(.unknownError))
                 }
-                complete(.failure(.unknownError))
             }
         }
     }
