@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let rootViewController = appContainer.prepareNewsTabBarController()
+        let login = LoginViewController(appContainer.prepareLoginViewModel())
+        let nav = UINavigationController(rootViewController: login)
+        let rootViewController = nav
+        //let rootViewController = appContainer.prepareNewsTabBarController()
         window?.rootViewController = rootViewController
         return true
     }

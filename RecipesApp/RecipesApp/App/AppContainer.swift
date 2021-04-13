@@ -41,4 +41,8 @@ final class AppContainer {
     func prepareChooseRecipesViewModel(menu: Menu? = nil) -> ChooseRecipeViewModel {
         return ChooseRecipeViewModel(appClient: appClient, menu: menu)
     }
+    
+    func prepareLoginViewModel(menu: Menu? = nil) -> LoginViewModel {
+        return LoginViewModel(appClient: appClient)
+    }
 }
