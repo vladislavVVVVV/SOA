@@ -26,6 +26,10 @@ class IngridientViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     // The object View Model which comes to the init.
     required init(_ ingridientViewModel: IngridientViewModel) {

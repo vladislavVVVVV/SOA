@@ -59,27 +59,19 @@ final class AppClient: NetworkClient, AppClientProtocol {
     }
     
     func deleteMenue(with id: Int) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+        return performRequest(route: AppRouter.deleteMenu(id: id))
     }
     
     func editIngridient(id: Int, name: String, fats: Int, proteins: Int, carbohydrates: Int) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+        return performRequest(route: AppRouter.editIngredient(id: id, request: IngridientRequest(name: name, proteins: proteins, carbohydrates: carbohydrates, fats: fats)))
     }
     
     func createIngridient(name: String, fats: Int, proteins: Int, carbohydrates: Int) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+        return performRequest(route: AppRouter.createIngredient(request: IngridientRequest(name: name, proteins: proteins, carbohydrates: carbohydrates, fats: fats)))
     }
     
     func deleteIngridient(id: Int) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+        return performRequest(route: AppRouter.deleteIngredient(id: id))
     }
     
     func getRecipesForMenue(by id: Int) -> Future<[Recipe], NetworkRequestError> {
@@ -99,9 +91,7 @@ final class AppClient: NetworkClient, AppClientProtocol {
     }
     
     func deleteRecipe(with id: Int) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+        return performRequest(route: AppRouter.deleteRecipe(id: id))
     }
     
     func getIngridients() -> Future<[Ingridient], NetworkRequestError> {

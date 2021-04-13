@@ -51,11 +51,12 @@ class NetworkClient: NetworkClientProtocol {
                 guard let statusCode = response.response?.statusCode else {
                     return complete(.failure(.unknownError))
                 }
-                guard statusCode != 200 else {
+                if statusCode == 200 || statusCode == 201 || statusCode == 204 {
                     complete(.success(Void()))
                     return
+                } else {
+                    complete(.failure(.unknownError))
                 }
-                complete(.failure(.unknownError))
             }
         }
     }

@@ -90,6 +90,31 @@ enum AppRouter: NetworkRouter {
             return ["username": username,
                     "email": email,
                     "password": password]
+        case .createIngredient(let request):
+            return ["name": request.name,
+                    "proteins": request.proteins,
+                    "carbohydrates": request.carbohydrates,
+                    "fats": request.fats]
+        case .editIngredient(let id, let request):
+            return ["ingredientId": id,
+                    "name": request.name,
+                    "proteins": request.proteins,
+                    "carbohydrates": request.carbohydrates,
+                    "fats": request.fats]
+        case .createRecipe(let request):
+            return ["name": request.name,
+                    "ingredients": request.ingridients]
+        case .editRecipe(let id, let request):
+            return ["recipeId": id,
+                    "name": request.name,
+                    "ingredients": request.ingridients]
+        case .createMenu(let request):
+            return ["name": request.name,
+                    "recipes": request.recipes]
+        case .editMenu(let id, let request):
+            return ["menueId": id,
+                    "name": request.name,
+                    "recipes": request.recipes]
         default:
             return nil
         }
