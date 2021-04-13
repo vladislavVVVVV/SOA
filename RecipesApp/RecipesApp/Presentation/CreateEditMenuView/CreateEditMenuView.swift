@@ -69,7 +69,9 @@ class CreateEditMenuViewController: UIViewController {
             menu.recipes?.forEach({ (recipe) in
                 recipes += ((recipe.name ?? "") + ", ")
             })
-            recipes.removeLast(2)
+            if recipes != "" {
+                recipes.removeLast(2)
+            }
             recipesLabel.text = recipes
         }
         saveButton.addTarget(self, action: #selector(saveItem), for: .touchUpInside)

@@ -50,4 +50,8 @@ final class AppContainer {
     func prepareRegistrationViewModel() -> RegistrationViewModel {
         return RegistrationViewModel(userManager: userManager)
     }
+    
+    func prepareReceiptsViewModel() -> RecipesViewModel {
+        return RecipesViewModel(appClient: appClient, userManager: userManager)
+    }
 }

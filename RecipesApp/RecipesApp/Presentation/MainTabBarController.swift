@@ -35,6 +35,11 @@ class MainTabBarController: UITabBarController {
         menuesViewController.tabBarItem = prepareTabBarItemWith(title: "Menues", iconName: "menu", iconSelectedName: "menu-selected")
         tabBarList.append(menuesNavigationViewController)
         
+        let recipesViewController = RecipesViewController(appContainer.prepareReceiptsViewModel())
+        let recipesNavigationViewController = UINavigationController(rootViewController: recipesViewController)
+        recipesViewController.tabBarItem = prepareTabBarItemWith(title: "Recipes", iconName: "menu", iconSelectedName: "menu-selected")
+        tabBarList.append(recipesNavigationViewController)
+        
         viewControllers = tabBarList
         selectedIndex = 0
     }

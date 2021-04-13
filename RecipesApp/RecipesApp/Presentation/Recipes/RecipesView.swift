@@ -1,15 +1,15 @@
 //
-//  ChooseRecipeView.swift
+//  RecipesView.swift
 //  RecipesApp
 //
-//  Created by Mac on 4/11/21.
+//  Created by Mac on 4/13/21.
 //
 
 import SnapKit
 import UIKit
 
-final class ChooseRecipeViewController: UIViewController {
-    let chooseRecipeViewModel: ChooseRecipeViewModel
+final class RecipesViewController: UIViewController {
+    let recipesViewModel: RecipesViewModel
     
     // All dimensions of the screen.
     private enum Dimensions {
@@ -25,16 +25,14 @@ final class ChooseRecipeViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.identifier())
-        tableView.allowsMultipleSelection = true
-        tableView.allowsSelection = true
         return tableView
     }()
     
     private let refreshControl = UIRefreshControl()
     
     // The object View Model which comes to the init.
-    required init(_ chooseRecipeViewModel: ChooseRecipeViewModel) {
-        self.chooseRecipeViewModel = chooseRecipeViewModel
+    required init(_ recipesViewModel: RecipesViewModel) {
+        self.recipesViewModel = recipesViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,7 +43,9 @@ final class ChooseRecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Get object of AppTabBarController.
-        setupLargeNavigationBarWith(title: "Choose recipes")
+        setupLargeNavigationBarWith(title: "Recipes")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         addSubviews()
         setupConstraints()
         setupRefreshControl()
@@ -86,13 +86,20 @@ final class ChooseRecipeViewController: UIViewController {
     }
     
     @objc private func addNewItem() {
-//        let viewModel = appContainer.prepareCreateEditIngridient(state: .create)
-//        let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
-//        present(navigationViewController, animated: true, completion: nil)
+        let viewModel = appContainer.prepareCreateEditIngridient(state: .create)
+        viewModel.delegate = self
+        let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
+        present(navigationViewController, animated: true, completion: nil)
+    }
+    
+    @objc private func logout() {
+        recipesViewModel.logout {
+            tabBarController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     private func getRecipes() {
-        chooseRecipeViewModel.getRecipes { [weak self] in
+        recipesViewModel.getRecipes { [weak self] in
             guard let self = self else { return }
             self.tableView.reloadData()
         } failure: { (error) in
@@ -109,10 +116,10 @@ final class ChooseRecipeViewController: UIViewController {
         return deleteAction
     }
     
-    private func deleteRecipe(id: Int, indexPaths: [IndexPath]) {
-        chooseRecipeViewModel.deleteRecipe(id: id) { [weak self] in
+    private func deleteRecipes(id: Int, indexPaths: [IndexPath]) {
+        recipesViewModel.deleteRecipe(id: id) { [weak self] in
             guard let self = self else { return }
-            self.chooseRecipeViewModel.recipes.remove(at: indexPaths[0].row)
+            self.recipesViewModel.recepies.remove(at: indexPaths[0].row)
             self.tableView.deleteRows(at: indexPaths, with: .automatic)
         } failure: { (error) in
             print(error)
@@ -121,40 +128,44 @@ final class ChooseRecipeViewController: UIViewController {
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension ChooseRecipeViewController: UITableViewDelegate, UITableViewDataSource {
+extension RecipesViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chooseRecipeViewModel.recipes.count
+        return recipesViewModel.recepies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.identifier()) as? RecipeTableViewCell else {
             return UITableViewCell()
         }
-        cell.recipe = chooseRecipeViewModel.recipes[indexPath.row]
+        cell.recipe = recipesViewModel.recepies[indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if chooseRecipeViewModel.isSelectedRecipes(indexPath: indexPath.row) {
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //let viewController = IngridientViewController(appContainer.prepareIngridientViewModel(ingridient: recipesViewModel.recipes[indexPath.row]))
+        //navigationController?.pushViewController(viewController, animated: true)
     }
     
     // Setup trailing swipes.
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath ) -> UISwipeActionsConfiguration? {
         let deleteAction = setupDeleteAction { [weak self] in
             guard let self = self else { return }
-            guard let id = self.chooseRecipeViewModel.recipes[indexPath.row].recipeId else {
+            guard let id = self.recipesViewModel.recepies[indexPath.row].recipeId else {
                 return
             }
-            self.deleteRecipe(id: id, indexPaths: [indexPath])
+            self.deleteRecipes(id: id, indexPaths: [indexPath])
         }
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
     }
 }
 
+extension RecipesViewController: CreateEditIngridientDelegate {
+    func update() {
+        getRecipes()
+    }
+}
