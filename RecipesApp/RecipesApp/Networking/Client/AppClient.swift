@@ -39,13 +39,11 @@ final class AppClient: NetworkClient, AppClientProtocol {
     }
     
     func getRecipes() -> Future<[Recipe], NetworkRequestError> {
-        return Future { complition in
-        }
+        return performRequest(route: AppRouter.getReciepes)
     }
     
     func getMenues() -> Future<[Menu], NetworkRequestError> {
-        return Future { complition in
-        }
+        return performRequest(route: AppRouter.getMenues)
     }
     
     func editMenue(with id: Int, name: String, idRecipes: [Int]) -> Future<Void, NetworkRequestError> {
@@ -85,8 +83,7 @@ final class AppClient: NetworkClient, AppClientProtocol {
     }
     
     func getRecipesForMenue(by id: Int) -> Future<[Recipe], NetworkRequestError> {
-        return Future { complition in
-        }
+        return performRequest(route: AppRouter.getReciepes)
     }
     
     func editRecipe(with id: Int, name: String, description: String, idIngridients: [Int]) -> Future<Void, NetworkRequestError> {

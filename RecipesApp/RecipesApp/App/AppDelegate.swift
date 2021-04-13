@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let login = LoginViewController(appContainer.prepareLoginViewModel())
         let nav = UINavigationController(rootViewController: login)
         let rootViewController = nav
-        //let rootViewController = appContainer.prepareNewsTabBarController()
         window?.rootViewController = rootViewController
         return true
     }

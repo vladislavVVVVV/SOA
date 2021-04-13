@@ -33,9 +33,9 @@ enum AppRouter: NetworkRouter {
         switch self {
         case .getReciepes, .getIngridients, .getMenues, .getMenu, .getRecipe, .getIngridient:
             return .get
-        case .createIngredient, .createMenu, .createRecipe:
+        case .createIngredient, .createMenu, .createRecipe, .login, .registration:
             return .post
-        case .deleteIngredient, .deleteMenu, .deleteRecipe, .login, .registration:
+        case .deleteIngredient, .deleteMenu, .deleteRecipe:
             return .delete
         case .editIngredient, .editMenu, .editRecipe:
             return .put
@@ -45,39 +45,39 @@ enum AppRouter: NetworkRouter {
     var path: String {
         switch self {
         case .login:
-            return Server.Production.baseURL + "/" + Server.PathComponent.api + "/" + Server.PathComponent.login
+            return  Server.PathComponent.api + "/" + Server.PathComponent.auth + "/" + Server.PathComponent.login
         case .registration:
-            return Server.Production.baseURL + "/" + Server.PathComponent.api + "/" + Server.PathComponent.register
+            return Server.PathComponent.api + "/" + Server.PathComponent.auth + "/" + Server.PathComponent.register
         case .getIngridients:
-            return Server.Production.baseURL + "/" + Server.PathComponent.ingredient
+            return Server.PathComponent.ingredient
         case .getIngridient(id: let id):
-            return Server.Production.baseURL + "/" + Server.PathComponent.ingredient + "/" + "\(id)"
+            return Server.PathComponent.ingredient + "/" + "\(id)"
         case .createIngredient:
-            return Server.Production.baseURL + "/" + Server.PathComponent.ingredient
+            return Server.PathComponent.ingredient
         case .editIngredient(id: let id, request: _):
-            return Server.Production.baseURL + "/" + Server.PathComponent.ingredient + "/" + "\(id)"
+            return Server.PathComponent.ingredient + "/" + "\(id)"
         case .deleteIngredient(id: let id):
-            return Server.Production.baseURL + "/" + Server.PathComponent.ingredient + "/" + "\(id)"
+            return Server.PathComponent.ingredient + "/" + "\(id)"
         case .getReciepes:
-            return Server.Production.baseURL + "/" + Server.PathComponent.recipes
+            return Server.PathComponent.recipes
         case .getRecipe(id: let id):
-            return Server.Production.baseURL + "/" + Server.PathComponent.recipes + "/" + "\(id)"
+            return Server.PathComponent.recipes + "/" + "\(id)"
         case .createRecipe:
-            return Server.Production.baseURL + "/" + Server.PathComponent.recipes
+            return Server.PathComponent.recipes
         case .editRecipe(id: let id, request: _):
-            return Server.Production.baseURL + "/" + Server.PathComponent.recipes + "/" + "\(id)"
+            return Server.PathComponent.recipes + "/" + "\(id)"
         case .deleteRecipe(id: let id):
-            return Server.Production.baseURL + "/" + Server.PathComponent.recipes + "/" + "\(id)"
+            return Server.PathComponent.recipes + "/" + "\(id)"
         case .getMenues:
-            return Server.Production.baseURL + "/" + Server.PathComponent.menues
+            return Server.PathComponent.menues
         case .getMenu(id: let id):
-            return Server.Production.baseURL + "/" + Server.PathComponent.menues + "/" + "\(id)"
+            return Server.PathComponent.menues + "/" + "\(id)"
         case .createMenu:
-            return Server.Production.baseURL + "/" + Server.PathComponent.menues
+            return Server.PathComponent.menues
         case .editMenu(id: let id, request: _):
-            return Server.Production.baseURL + "/" + Server.PathComponent.menues + "/" + "\(id)"
+            return Server.PathComponent.menues + "/" + "\(id)"
         case .deleteMenu(id: let id):
-            return Server.Production.baseURL + "/" + Server.PathComponent.menues + "/" + "\(id)"
+            return Server.PathComponent.menues + "/" + "\(id)"
         }
     }
 

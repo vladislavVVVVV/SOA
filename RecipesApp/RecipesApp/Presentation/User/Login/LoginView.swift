@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Пароль"
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -37,6 +38,12 @@ class LoginViewController: UIViewController {
         stackView.backgroundColor = UIColor.Base.accent
         return stackView
     }()
+    
+    private let loginButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Войти", for: .normal)
+        return button
+    }()
 
 
     override func viewDidLoad() {
@@ -44,6 +51,7 @@ class LoginViewController: UIViewController {
         setupLargeNavigationBarWith(title: "LOGIN")
         addSubviews()
         setupConstraints()
+        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         descriptionLabel.text = "Войдите в систему!"
     }
 
@@ -62,6 +70,7 @@ class LoginViewController: UIViewController {
         view.addSubview(stackView)
         stackView.addArrangedSubview(loginTextField)
         stackView.addArrangedSubview(passwordTextField)
+        stackView.addArrangedSubview(loginButton)
     }
     
     private func setupConstraints() {
@@ -80,5 +89,14 @@ class LoginViewController: UIViewController {
     }
 
     @objc private func login() {
+        loginViewModel.loginUser(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] in
+            guard let self = self else { return }
+            let vc = MainTabBarController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        } failure: { [weak self] (error) in
+            guard let self = self else { return }
+            self.showDefaultErrorAlert()
+        }
     }
 }
