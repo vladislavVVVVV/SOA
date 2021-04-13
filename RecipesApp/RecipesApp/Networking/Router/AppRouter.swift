@@ -109,14 +109,21 @@ enum AppRouter: NetworkRouter {
                     "name": request.name,
                     "ingredients": request.ingridients]
         case .createMenu(let request):
-            return ["name": request.name,
-                    "recipes": request.recipes]
-        case .editMenu(let id, let request):
-            return ["menueId": id,
-                    "name": request.name,
-                    "recipes": request.recipes]
+            return request.dictionary
+        case .editMenu(_ , let request):
+            return request.dictionary
+//            return ["menueId": id,
+//                    "name": request.name,
+//                    "recipes": request.recipes]
         default:
             return nil
         }
+    }
+}
+
+extension Encodable {
+    var dictionary: [String: Any]? {
+        guard let data = try? JSONEncoder().encode(self) else { return nil }
+        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
     }
 }

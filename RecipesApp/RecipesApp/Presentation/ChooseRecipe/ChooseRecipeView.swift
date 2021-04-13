@@ -54,8 +54,14 @@ final class ChooseRecipeViewController: UIViewController {
         getRecipes()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        var choosed: [Recipe] = []
+        let indexes = tableView.indexPathsForSelectedRows ?? []
+        indexes.forEach { (index) in
+            choosed.append(chooseRecipeViewModel.recipes[index.row])
+        }
+        chooseRecipeViewModel.delegate?.didChoose(ingridients: choosed)
     }
     
     // Show menu options when the screen opens.
@@ -83,12 +89,6 @@ final class ChooseRecipeViewController: UIViewController {
         // Refresh items
         getRecipes()
         refreshControl.endRefreshing()
-    }
-    
-    @objc private func addNewItem() {
-//        let viewModel = appContainer.prepareCreateEditIngridient(state: .create)
-//        let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
-//        present(navigationViewController, animated: true, completion: nil)
     }
     
     private func getRecipes() {

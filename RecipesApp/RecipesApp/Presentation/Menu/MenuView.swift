@@ -12,6 +12,7 @@ class MenuViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
@@ -30,7 +31,7 @@ class MenuViewController: UIViewController {
         tableView.isScrollEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
-        descriptionLabel.text = "Что то о меню?"
+        descriptionLabel.text = "Ниже представлены рецепты данного меню"
     }
 
     // The object View Model which comes to the init.

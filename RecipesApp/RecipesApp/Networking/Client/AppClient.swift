@@ -20,13 +20,13 @@ protocol AppClientProtocol {
     
     func getRecipesForMenue(by id: Int) -> Future<[Recipe], NetworkRequestError>
     func getRecipes() -> Future<[Recipe], NetworkRequestError>
-    func editRecipe(with id: Int, name: String, description: String, idIngridients: [Int]) -> Future<Void, NetworkRequestError>
-    func createRecipe(name: String, description: String, idIngridients: [Int]) -> Future<Void, NetworkRequestError>
+    func editRecipe(with id: Int, request: RecipeRequest) -> Future<Void, NetworkRequestError>
+    func createRecipe(name: String, ingridients: [IngridientRequest]) -> Future<Void, NetworkRequestError>
     func deleteRecipe(with id: Int) -> Future<Void, NetworkRequestError>
     
     func getMenues() -> Future<[Menu], NetworkRequestError>
-    func editMenue(with id: Int, name: String, idRecipes: [Int]) -> Future<Void, NetworkRequestError>
-    func createMenue(name: String, idRecipes: [Int]) -> Future<Void, NetworkRequestError>
+    func editMenue(with id: Int, request: MenuRequest) -> Future<Void, NetworkRequestError>
+    func createMenue(request: MenuRequest) -> Future<Void, NetworkRequestError>
     func deleteMenue(with id: Int) -> Future<Void, NetworkRequestError>
 }
 
@@ -51,16 +51,12 @@ final class AppClient: NetworkClient, AppClientProtocol {
         return performRequest(route: AppRouter.getMenues)
     }
     
-    func editMenue(with id: Int, name: String, idRecipes: [Int]) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+    func editMenue(with id: Int, request: MenuRequest) -> Future<Void, NetworkRequestError> {
+        return performRequest(route: AppRouter.editMenu(id: id, request: request))
     }
     
-    func createMenue(name: String, idRecipes: [Int]) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+    func createMenue(request: MenuRequest) -> Future<Void, NetworkRequestError> {
+        return performRequest(route: AppRouter.createMenu(request: request))
     }
     
     func deleteMenue(with id: Int) -> Future<Void, NetworkRequestError> {
@@ -68,11 +64,11 @@ final class AppClient: NetworkClient, AppClientProtocol {
     }
     
     func editIngridient(id: Int, name: String, fats: Int, proteins: Int, carbohydrates: Int) -> Future<Void, NetworkRequestError> {
-        return performRequest(route: AppRouter.editIngredient(id: id, request: IngridientRequest(name: name, proteins: proteins, carbohydrates: carbohydrates, fats: fats)))
+        return performRequest(route: AppRouter.editIngredient(id: id, request: IngridientRequest(ingredientId: id, name: name, proteins: proteins, carbohydrates: carbohydrates, fats: fats)))
     }
     
     func createIngridient(name: String, fats: Int, proteins: Int, carbohydrates: Int) -> Future<Void, NetworkRequestError> {
-        return performRequest(route: AppRouter.createIngredient(request: IngridientRequest(name: name, proteins: proteins, carbohydrates: carbohydrates, fats: fats)))
+        return performRequest(route: AppRouter.createIngredient(request: IngridientRequest(ingredientId: 0, name: name, proteins: proteins, carbohydrates: carbohydrates, fats: fats)))
     }
     
     func deleteIngridient(id: Int) -> Future<Void, NetworkRequestError> {
@@ -83,16 +79,12 @@ final class AppClient: NetworkClient, AppClientProtocol {
         return performRequest(route: AppRouter.getReciepes)
     }
     
-    func editRecipe(with id: Int, name: String, description: String, idIngridients: [Int]) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+    func editRecipe(with id: Int, request: RecipeRequest) -> Future<Void, NetworkRequestError> {
+        return performRequest(route: AppRouter.editRecipe(id: id, request: request))
     }
     
-    func createRecipe(name: String, description: String, idIngridients: [Int]) -> Future<Void, NetworkRequestError> {
-        return Future { complition in
-            complition(.success(Void()))
-        }
+    func createRecipe(name: String, ingridients: [IngridientRequest]) -> Future<Void, NetworkRequestError> {
+        return performRequest(route: AppRouter.createRecipe(request: RecipeRequest(recipeId: 0, name: name, ingridients: ingridients)))
     }
     
     func deleteRecipe(with id: Int) -> Future<Void, NetworkRequestError> {

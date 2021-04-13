@@ -15,22 +15,37 @@ enum MenuState: Equatable {
 final class CreateEditMenuViewModel {
     let appClient: AppClientProtocol
     let state: MenuState
+    var selectedRecipes: [Recipe]
     
     init(appClient: AppClientProtocol, state: MenuState) {
         self.state = state
         self.appClient = appClient
-    }
-    
-    func createEditMenu(name: String, ids: [Int], success: @escaping() -> Void, failure: @escaping(NetworkRequestError) -> Void) {
         switch state {
         case .create:
-            appClient.createMenue(name: name, idRecipes: ids).onSuccess { () in
+            selectedRecipes = []
+        case .edit(let menu):
+            selectedRecipes = menu.recipes ?? []
+        }
+    }
+    
+    func createEditMenu(name: String, success: @escaping() -> Void, failure: @escaping(NetworkRequestError) -> Void) {
+        switch state {
+        case .create:
+            var igrs: [RecipeRequest] = []
+            selectedRecipes.forEach { (ing) in
+                igrs.append(RecipeRequest(recipe: ing))
+            }
+            appClient.createMenue(request: MenuRequest(menueId: 0, name: name, recipes: igrs)).onSuccess { () in
                 success()
             }.onFailure { (error) in
                 failure(error)
             }
         case .edit(let menu):
-            appClient.editMenue(with: menu.menueId ?? 0, name: name, idRecipes: ids).onSuccess { () in
+            var igrs: [RecipeRequest] = []
+            selectedRecipes.forEach { (ing) in
+                igrs.append(RecipeRequest(recipe: ing))
+            }
+            appClient.editMenue(with: menu.menueId ?? 0, request: MenuRequest(menueId: menu.menueId ?? 0, name: name, recipes: igrs)).onSuccess { () in
                 success()
             }.onFailure { (error) in
                 failure(error)

@@ -8,11 +8,16 @@
 import Foundation
 import BrightFutures
 
+protocol ChooseRecipeViewDelegate: AnyObject {
+    func didChoose(ingridients: [Recipe])
+}
+
 final class ChooseRecipeViewModel {
 
     private let appClient: AppClientProtocol
     var menu: Menu?
     var recipes = [Recipe]()
+    var delegate: ChooseRecipeViewDelegate? = nil
 
     init(appClient: AppClientProtocol, menu: Menu?) {
         self.appClient = appClient

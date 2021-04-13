@@ -86,10 +86,8 @@ final class RecipesViewController: UIViewController {
     }
     
     @objc private func addNewItem() {
-        let viewModel = appContainer.prepareCreateEditIngridient(state: .create)
-        viewModel.delegate = self
-        let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
-        present(navigationViewController, animated: true, completion: nil)
+        let viewModel = appContainer.prepareCreateEditRecipeViewModel(state: .create)
+        navigationController?.pushViewController(CreateEditRecipeViewController(viewModel), animated: true)
     }
     
     @objc private func logout() {
@@ -97,7 +95,7 @@ final class RecipesViewController: UIViewController {
             tabBarController?.dismiss(animated: true, completion: nil)
         }
     }
-    
+
     private func getRecipes() {
         recipesViewModel.getRecipes { [weak self] in
             guard let self = self else { return }

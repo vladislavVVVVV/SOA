@@ -66,7 +66,7 @@ class CreateEditMenuViewController: UIViewController {
             setupLargeNavigationBarWith(title: "Edit \(menu.name ?? "menu")")
             nameTextField.text = menu.name
             var recipes = String()
-            menu.recipes?.forEach({ (recipe) in
+            createEditMenuViewModel.selectedRecipes.forEach({ (recipe) in
                 recipes += ((recipe.name ?? "") + ", ")
             })
             if recipes != "" {
@@ -121,21 +121,55 @@ class CreateEditMenuViewController: UIViewController {
     }
     
     @objc private func saveItem() {
-//       guard nameTextField.text != "" && fatTextField.text != "" && carbTextField.text != "" && proteinTextField.text != "" else {
-//            showDefaultErrorAlert()
-//            return
-//        }
+        createEditMenuViewModel.createEditMenu(name: nameTextField.text ?? "") { [weak self] in
+            guard let self = self else { return }
+            self.navigationController?.popViewController(animated: true)
+        } failure: { [weak self] (error) in
+            guard let self = self else { return }
+            self.showDefaultErrorAlert()
+        }
     }
     
     @objc private func chooseRecipes() {
         switch createEditMenuViewModel.state {
         case .edit(let menu):
-            let navigationController = UINavigationController(rootViewController: ChooseRecipeViewController(appContainer.prepareChooseRecipesViewModel(menu: menu)))
+            let viewModel = appContainer.prepareChooseRecipesViewModel(menu: menu)
+            viewModel.delegate = self
+            let navigationController = UINavigationController(rootViewController: ChooseRecipeViewController(viewModel))
             present(navigationController, animated: true, completion: nil)
         default:
-            let navigationController = UINavigationController(rootViewController: ChooseRecipeViewController(appContainer.prepareChooseRecipesViewModel()))
+            let viewModel = appContainer.prepareChooseRecipesViewModel()
+            viewModel.delegate = self
+            let navigationController = UINavigationController(rootViewController: ChooseRecipeViewController(viewModel))
             present(navigationController, animated: true, completion: nil)
         }
-        
+    }
+}
+
+extension CreateEditMenuViewController: ChooseRecipeViewDelegate {
+    func didChoose(ingridients: [Recipe]) {
+        createEditMenuViewModel.selectedRecipes = ingridients
+        switch createEditMenuViewModel.state {
+        case .create:
+            setupLargeNavigationBarWith(title: "Create new menu")
+            var recipes = String()
+            createEditMenuViewModel.selectedRecipes.forEach({ (recipe) in
+                recipes += ((recipe.name ?? "") + ", ")
+            })
+            if recipes != "" {
+                recipes.removeLast(2)
+            }
+            recipesLabel.text = recipes
+        case .edit(let menu):
+            setupLargeNavigationBarWith(title: "Edit \(menu.name ?? "menu")")
+            var recipes = String()
+            createEditMenuViewModel.selectedRecipes.forEach({ (recipe) in
+                recipes += ((recipe.name ?? "") + ", ")
+            })
+            if recipes != "" {
+                recipes.removeLast(2)
+            }
+            recipesLabel.text = recipes
+        }
     }
 }

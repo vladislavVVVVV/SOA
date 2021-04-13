@@ -12,6 +12,7 @@ class RecipeViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
@@ -61,9 +62,9 @@ class RecipeViewController: UIViewController {
     }
 
     @objc private func editItem() {
-        //let viewModel = appContainer.prepareCreateEditMenuViewModel(state: .edit(menu: menuViewModel.selectedMenu))
-        //let viewController = CreateEditMenuViewController(viewModel)
-        //navigationController?.pushViewController(viewController, animated: true)
+        let viewModel = appContainer.prepareCreateEditRecipeViewModel(state: .edit(recipe: recipeViewModel.selectedRecipe))
+        let viewController = CreateEditRecipeViewController(viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

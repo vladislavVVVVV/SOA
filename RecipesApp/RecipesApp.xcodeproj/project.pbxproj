@@ -10,6 +10,8 @@
 		73CC29AE3E4A5ECE71D25526 /* Pods_RecipesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEF6A6B44A4B29005F939B9 /* Pods_RecipesApp.framework */; };
 		ED2591892625E845007D784C /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2591882625E845007D784C /* RecipeView.swift */; };
 		ED25918D2625E852007D784C /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED25918C2625E852007D784C /* RecipeViewModel.swift */; };
+		ED2591922625EF83007D784C /* CreateEditRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2591912625EF83007D784C /* CreateEditRecipeView.swift */; };
+		ED2591962625EF95007D784C /* CreateEditRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2591952625EF95007D784C /* CreateEditRecipeViewModel.swift */; };
 		ED6E60992622EB5100405E44 /* IngridientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60982622EB5100405E44 /* IngridientsView.swift */; };
 		ED6E609D2622EB6300405E44 /* IngridientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E609C2622EB6300405E44 /* IngridientsViewModel.swift */; };
 		ED6E60A42622EDD000405E44 /* Ingridient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60A32622EDD000405E44 /* Ingridient.swift */; };
@@ -64,6 +66,8 @@
 		686B95BA89A8A9128C701133 /* Pods-RecipesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesApp.debug.xcconfig"; path = "Target Support Files/Pods-RecipesApp/Pods-RecipesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ED2591882625E845007D784C /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		ED25918C2625E852007D784C /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		ED2591912625EF83007D784C /* CreateEditRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditRecipeView.swift; sourceTree = "<group>"; };
+		ED2591952625EF95007D784C /* CreateEditRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditRecipeViewModel.swift; sourceTree = "<group>"; };
 		ED6E60982622EB5100405E44 /* IngridientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsView.swift; sourceTree = "<group>"; };
 		ED6E609C2622EB6300405E44 /* IngridientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsViewModel.swift; sourceTree = "<group>"; };
 		ED6E60A32622EDD000405E44 /* Ingridient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingridient.swift; sourceTree = "<group>"; };
@@ -152,6 +156,15 @@
 				ED25918C2625E852007D784C /* RecipeViewModel.swift */,
 			);
 			path = Recipe;
+			sourceTree = "<group>";
+		};
+		ED2591902625EF6A007D784C /* CreateEditRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				ED2591912625EF83007D784C /* CreateEditRecipeView.swift */,
+				ED2591952625EF95007D784C /* CreateEditRecipeViewModel.swift */,
+			);
+			path = CreateEditRecipe;
 			sourceTree = "<group>";
 		};
 		ED6E60962622EA4600405E44 /* Ingridients */ = {
@@ -379,6 +392,7 @@
 		ED7BEE69261CD2A10072E616 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				ED2591902625EF6A007D784C /* CreateEditRecipe */,
 				ED2591872625E82B007D784C /* Recipe */,
 				EDF947B62625DBBE00C4CAE1 /* Recipes */,
 				ED6E61002625896700405E44 /* User */,
@@ -519,6 +533,7 @@
 			files = (
 				ED7BEE31261CCF8D0072E616 /* AppDelegate.swift in Sources */,
 				ED6E60D72623355B00405E44 /* MenuesViewModel.swift in Sources */,
+				ED2591922625EF83007D784C /* CreateEditRecipeView.swift in Sources */,
 				ED6E610826258CD300405E44 /* LoginViewModel.swift in Sources */,
 				ED6E60AE2622F33900405E44 /* UIViewController+Extension.swift in Sources */,
 				ED7BEE58261CD1410072E616 /* AppContainer.swift in Sources */,
@@ -564,6 +579,7 @@
 				ED7BEE5D261CD1980072E616 /* NetworkClient.swift in Sources */,
 				ED6E61042625899800405E44 /* LoginView.swift in Sources */,
 				ED6E60F42623434300405E44 /* ChooseRecipeView.swift in Sources */,
+				ED2591962625EF95007D784C /* CreateEditRecipeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
