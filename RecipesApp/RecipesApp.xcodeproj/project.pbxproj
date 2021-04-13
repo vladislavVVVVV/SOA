@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		73CC29AE3E4A5ECE71D25526 /* Pods_RecipesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEF6A6B44A4B29005F939B9 /* Pods_RecipesApp.framework */; };
+		ED2591892625E845007D784C /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2591882625E845007D784C /* RecipeView.swift */; };
+		ED25918D2625E852007D784C /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED25918C2625E852007D784C /* RecipeViewModel.swift */; };
 		ED6E60992622EB5100405E44 /* IngridientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60982622EB5100405E44 /* IngridientsView.swift */; };
 		ED6E609D2622EB6300405E44 /* IngridientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E609C2622EB6300405E44 /* IngridientsViewModel.swift */; };
 		ED6E60A42622EDD000405E44 /* Ingridient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E60A32622EDD000405E44 /* Ingridient.swift */; };
@@ -60,6 +62,8 @@
 /* Begin PBXFileReference section */
 		4C768823A01BEABAC863F032 /* Pods-RecipesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesApp.release.xcconfig"; path = "Target Support Files/Pods-RecipesApp/Pods-RecipesApp.release.xcconfig"; sourceTree = "<group>"; };
 		686B95BA89A8A9128C701133 /* Pods-RecipesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesApp.debug.xcconfig"; path = "Target Support Files/Pods-RecipesApp/Pods-RecipesApp.debug.xcconfig"; sourceTree = "<group>"; };
+		ED2591882625E845007D784C /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		ED25918C2625E852007D784C /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		ED6E60982622EB5100405E44 /* IngridientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsView.swift; sourceTree = "<group>"; };
 		ED6E609C2622EB6300405E44 /* IngridientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsViewModel.swift; sourceTree = "<group>"; };
 		ED6E60A32622EDD000405E44 /* Ingridient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingridient.swift; sourceTree = "<group>"; };
@@ -139,6 +143,15 @@
 				4C768823A01BEABAC863F032 /* Pods-RecipesApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED2591872625E82B007D784C /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				ED2591882625E845007D784C /* RecipeView.swift */,
+				ED25918C2625E852007D784C /* RecipeViewModel.swift */,
+			);
+			path = Recipe;
 			sourceTree = "<group>";
 		};
 		ED6E60962622EA4600405E44 /* Ingridients */ = {
@@ -366,6 +379,7 @@
 		ED7BEE69261CD2A10072E616 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				ED2591872625E82B007D784C /* Recipe */,
 				EDF947B62625DBBE00C4CAE1 /* Recipes */,
 				ED6E61002625896700405E44 /* User */,
 				ED6E60F22623432600405E44 /* ChooseRecipe */,
@@ -511,6 +525,7 @@
 				ED6E610B26258CE600405E44 /* RegistrationView.swift in Sources */,
 				ED7BEE67261CD2200072E616 /* AppRouter.swift in Sources */,
 				ED6E6114262595A300405E44 /* KeychanManager.swift in Sources */,
+				ED2591892625E845007D784C /* RecipeView.swift in Sources */,
 				ED6E60ED26233EDB00405E44 /* CreateEditMenuView.swift in Sources */,
 				ED6E60992622EB5100405E44 /* IngridientsView.swift in Sources */,
 				EDF947B42625AB9200C4CAE1 /* Token.swift in Sources */,
@@ -545,6 +560,7 @@
 				ED6E60E526233A4700405E44 /* MenuViewModel.swift in Sources */,
 				ED7BEE61261CD1BC0072E616 /* AppClient.swift in Sources */,
 				ED6E60F72623435100405E44 /* ChooseRecipeViewModel.swift in Sources */,
+				ED25918D2625E852007D784C /* RecipeViewModel.swift in Sources */,
 				ED7BEE5D261CD1980072E616 /* NetworkClient.swift in Sources */,
 				ED6E61042625899800405E44 /* LoginView.swift in Sources */,
 				ED6E60F42623434300405E44 /* ChooseRecipeView.swift in Sources */,

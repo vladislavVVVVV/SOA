@@ -146,8 +146,9 @@ extension RecipesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let viewController = IngridientViewController(appContainer.prepareIngridientViewModel(ingridient: recipesViewModel.recipes[indexPath.row]))
-        //navigationController?.pushViewController(viewController, animated: true)
+        let viewController = RecipeViewController(appContainer.prepareRecipeViewModel(recipe: recipesViewModel.recepies[indexPath.row]))
+        navigationController?.pushViewController(viewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // Setup trailing swipes.

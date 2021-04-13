@@ -54,4 +54,8 @@ final class AppContainer {
     func prepareReceiptsViewModel() -> RecipesViewModel {
         return RecipesViewModel(appClient: appClient, userManager: userManager)
     }
+    
+    func prepareRecipeViewModel(recipe: Recipe) -> RecipeViewModel {
+        return RecipeViewModel(recipe: recipe, appClient: appClient)
+    }
 }
