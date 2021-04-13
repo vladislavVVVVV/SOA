@@ -12,6 +12,7 @@ protocol AppClientProtocol {
     func login(email: String, password: String) -> Future<Token, NetworkRequestError>
     func register(username: String, email: String, password: String) -> Future<Token, NetworkRequestError>
     
+    func getIngridient(id: Int) -> Future<Ingridient, NetworkRequestError>
     func getIngridients() -> Future<[Ingridient], NetworkRequestError>
     func editIngridient(id: Int, name: String, fats: Int, proteins: Int, carbohydrates: Int) -> Future<Void, NetworkRequestError>
     func createIngridient(name: String, fats: Int, proteins: Int, carbohydrates: Int) -> Future<Void, NetworkRequestError>
@@ -30,6 +31,10 @@ protocol AppClientProtocol {
 }
 
 final class AppClient: NetworkClient, AppClientProtocol {
+    func getIngridient(id: Int) -> Future<Ingridient, NetworkRequestError> {
+        return performRequest(route: AppRouter.getIngridient(id: id))
+    }
+    
     func register(username: String, email: String, password: String) -> Future<Token, NetworkRequestError> {
         return performRequest(route: AppRouter.registration(username: username, email: email, password: password))
     }

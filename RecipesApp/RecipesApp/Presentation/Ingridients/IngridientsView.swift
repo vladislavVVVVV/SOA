@@ -87,6 +87,7 @@ final class IngridientsViewController: UIViewController {
     
     @objc private func addNewItem() {
         let viewModel = appContainer.prepareCreateEditIngridient(state: .create)
+        viewModel.delegate = self
         let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
         present(navigationViewController, animated: true, completion: nil)
     }
@@ -160,5 +161,11 @@ extension IngridientsViewController: UITableViewDelegate, UITableViewDataSource 
         }
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
+    }
+}
+
+extension IngridientsViewController: CreateEditIngridientDelegate {
+    func update() {
+        getIngridients()
     }
 }
