@@ -9,6 +9,9 @@ import BrightFutures
 import Alamofire
 
 protocol AppClientProtocol {
+    func login(email: String, password: String) -> Future<Token, NetworkRequestError>
+    func register(username: String, email: String, password: String) -> Future<Token, NetworkRequestError>
+    
     func getIngridients() -> Future<[Ingridient], NetworkRequestError>
     func editIngridient(id: Int, name: String, fats: Int, proteins: Int, carbohydrates: Int) -> Future<Void, NetworkRequestError>
     func createIngridient(name: String, fats: Int, proteins: Int, carbohydrates: Int) -> Future<Void, NetworkRequestError>
@@ -27,15 +30,21 @@ protocol AppClientProtocol {
 }
 
 final class AppClient: NetworkClient, AppClientProtocol {
+    func register(username: String, email: String, password: String) -> Future<Token, NetworkRequestError> {
+        return performRequest(route: AppRouter.registration(username: username, email: email, password: password))
+    }
+    
+    func login(email: String, password: String) -> Future<Token, NetworkRequestError> {
+        return performRequest(route: AppRouter.login(email: email, password: password))
+    }
+    
     func getRecipes() -> Future<[Recipe], NetworkRequestError> {
         return Future { complition in
-            complition(.success([Recipe(id: 1, name: "Рулька", description: "Готовим быстро и вкусно", ingridients: [Ingridient(id: 1, name: "Свинина", proteins: 12, carbohydrates: 23, fats: 40), Ingridient(id: 2, name: "Пиво", proteins: 10, carbohydrates: 23, fats: 140)]), Recipe(id: 2, name: "Пуддинг", description: "Готовим медленно и не вкусно", ingridients: [Ingridient(id: 3, name: "Шоколад", proteins: 12, carbohydrates: 23, fats: 40), Ingridient(id: 4, name: "Молоко", proteins: 10, carbohydrates: 23, fats: 140)])]))
         }
     }
     
     func getMenues() -> Future<[Menu], NetworkRequestError> {
         return Future { complition in
-            complition(.success([Menu(id: 1, name: "Первое меню", recipes: [Recipe(id: 1, name: "Рулька", description: "Готовим быстро и вкусно!", ingridients: [Ingridient(id: 1, name: "Свинина", proteins: 12, carbohydrates: 23, fats: 40), Ingridient(id: 2, name: "Пиво", proteins: 10, carbohydrates: 23, fats: 140)]), Recipe(id: 2, name: "Пуддинг", description: "Готовим медленно и не вкусно", ingridients: [Ingridient(id: 3, name: "Шоколад", proteins: 12, carbohydrates: 23, fats: 40), Ingridient(id: 4, name: "Молоко", proteins: 10, carbohydrates: 23, fats: 140)])])]))
         }
     }
     
@@ -77,7 +86,6 @@ final class AppClient: NetworkClient, AppClientProtocol {
     
     func getRecipesForMenue(by id: Int) -> Future<[Recipe], NetworkRequestError> {
         return Future { complition in
-            complition(.success([Recipe(id: 1, name: "Рулька", description: "Готовим быстро и вкусно", ingridients: [Ingridient(id: 1, name: "Свинина", proteins: 12, carbohydrates: 23, fats: 40), Ingridient(id: 2, name: "Пиво", proteins: 10, carbohydrates: 23, fats: 140)]), Recipe(id: 2, name: "Пуддинг", description: "Готовим медленно и не вкусно", ingridients: [Ingridient(id: 3, name: "Шоколад", proteins: 12, carbohydrates: 23, fats: 40), Ingridient(id: 4, name: "Молоко", proteins: 10, carbohydrates: 23, fats: 140)])]))
         }
     }
     
@@ -100,9 +108,6 @@ final class AppClient: NetworkClient, AppClientProtocol {
     }
     
     func getIngridients() -> Future<[Ingridient], NetworkRequestError> {
-        //return performRequest(route: AppRouter.getNews(category: category))
-        return Future { complition in
-            complition(.success([Ingridient(id: 1, name: "Мясо", proteins: 20, carbohydrates: 2, fats: 50), Ingridient(id: 2, name: "Банан", proteins: 100, carbohydrates: 2, fats: 20), Ingridient(id: 3, name: "Гуава", proteins: 2, carbohydrates: 3, fats: 50)]))
-        }
+        return performRequest(route: AppRouter.getIngridients)
     }
 }

@@ -49,6 +49,10 @@
 		ED7BEE64261CD1E70072E616 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE63261CD1E70072E616 /* NetworkRouter.swift */; };
 		ED7BEE67261CD2200072E616 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE66261CD2200072E616 /* AppRouter.swift */; };
 		ED7BEE6B261CD2B70072E616 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BEE6A261CD2B70072E616 /* MainTabBarController.swift */; };
+		EDF947AB2625A61D00C4CAE1 /* IngridientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF947AA2625A61D00C4CAE1 /* IngridientRequest.swift */; };
+		EDF947AE2625A62A00C4CAE1 /* MenuRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF947AD2625A62A00C4CAE1 /* MenuRequest.swift */; };
+		EDF947B12625A63800C4CAE1 /* RecipeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF947B02625A63800C4CAE1 /* RecipeRequest.swift */; };
+		EDF947B42625AB9200C4CAE1 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF947B32625AB9200C4CAE1 /* Token.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +101,10 @@
 		ED7BEE63261CD1E70072E616 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		ED7BEE66261CD2200072E616 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		ED7BEE6A261CD2B70072E616 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		EDF947AA2625A61D00C4CAE1 /* IngridientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientRequest.swift; sourceTree = "<group>"; };
+		EDF947AD2625A62A00C4CAE1 /* MenuRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRequest.swift; sourceTree = "<group>"; };
+		EDF947B02625A63800C4CAE1 /* RecipeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRequest.swift; sourceTree = "<group>"; };
+		EDF947B32625AB9200C4CAE1 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FBEF6A6B44A4B29005F939B9 /* Pods_RecipesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -315,6 +323,10 @@
 				ED6E60C8262332D900405E44 /* Recipe.swift */,
 				ED6E60CC2623343E00405E44 /* Menu.swift */,
 				ED6E612126259A8000405E44 /* ConnectToken.swift */,
+				EDF947AA2625A61D00C4CAE1 /* IngridientRequest.swift */,
+				EDF947AD2625A62A00C4CAE1 /* MenuRequest.swift */,
+				EDF947B02625A63800C4CAE1 /* RecipeRequest.swift */,
+				EDF947B32625AB9200C4CAE1 /* Token.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -487,8 +499,10 @@
 				ED6E6114262595A300405E44 /* KeychanManager.swift in Sources */,
 				ED6E60ED26233EDB00405E44 /* CreateEditMenuView.swift in Sources */,
 				ED6E60992622EB5100405E44 /* IngridientsView.swift in Sources */,
+				EDF947B42625AB9200C4CAE1 /* Token.swift in Sources */,
 				ED6E60F026233EEF00405E44 /* CreateEditMenuViewModel.swift in Sources */,
 				ED6E610E26258CF900405E44 /* RegistrationViewModel.swift in Sources */,
+				EDF947AE2625A62A00C4CAE1 /* MenuRequest.swift in Sources */,
 				ED6E60A42622EDD000405E44 /* Ingridient.swift in Sources */,
 				ED6E61172625977700405E44 /* TokenExpiredInterceptor.swift in Sources */,
 				ED6E60BC2622F8D400405E44 /* NutritionalValueCell.swift in Sources */,
@@ -499,8 +513,10 @@
 				ED6E60E926233C8700405E44 /* RecipeTableViewCell.swift in Sources */,
 				ED6E61112625936300405E44 /* UserManager.swift in Sources */,
 				ED7BEE6B261CD2B70072E616 /* MainTabBarController.swift in Sources */,
+				EDF947B12625A63800C4CAE1 /* RecipeRequest.swift in Sources */,
 				ED6E60D42623354F00405E44 /* MenuesView.swift in Sources */,
 				ED6E60AB2622F05E00405E44 /* UITableViewCell+Extension.swift in Sources */,
+				EDF947AB2625A61D00C4CAE1 /* IngridientRequest.swift in Sources */,
 				ED6E60CD2623343E00405E44 /* Menu.swift in Sources */,
 				ED6E60B52622F73000405E44 /* IngridientView.swift in Sources */,
 				ED6E612226259A8000405E44 /* ConnectToken.swift in Sources */,

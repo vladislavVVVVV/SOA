@@ -149,7 +149,7 @@ extension ChooseRecipeViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath ) -> UISwipeActionsConfiguration? {
         let deleteAction = setupDeleteAction { [weak self] in
             guard let self = self else { return }
-            guard let id = self.chooseRecipeViewModel.recipes[indexPath.row].id else {
+            guard let id = self.chooseRecipeViewModel.recipes[indexPath.row].recipeId else {
                 return
             }
             self.deleteRecipe(id: id, indexPaths: [indexPath])

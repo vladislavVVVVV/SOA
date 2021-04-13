@@ -8,9 +8,17 @@
 import Foundation
 
 final class LoginViewModel {
-    let appClient: AppClientProtocol
+    let userManager: UserManager
     
-    init(appClient: AppClientProtocol) {
-        self.appClient = appClient
+    init(userManager: UserManager) {
+        self.userManager = userManager
+    }
+    
+    func loginUser(email: String, password: String, success: @escaping() -> Void, failure: @escaping(NetworkRequestError) -> Void) {
+        userManager.loginUser(email: email, password: password) {
+            success()
+        } failure: { (error) in
+            failure(error)
+        }
     }
 }

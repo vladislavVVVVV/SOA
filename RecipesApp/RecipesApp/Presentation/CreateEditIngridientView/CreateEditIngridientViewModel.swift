@@ -30,7 +30,7 @@ final class CreateEditIngridientViewModel {
                 failure(error)
             }
         case .edit(let ingridient):
-            appClient.editIngridient(id: ingridient.id ?? 0, name: name, fats: fats, proteins: proteins, carbohydrates: carbohydrates).onSuccess { () in
+            appClient.editIngridient(id: ingridient.ingredientId ?? 0, name: name, fats: fats, proteins: proteins, carbohydrates: carbohydrates).onSuccess { () in
                 success()
             }.onFailure { (error) in
                 failure(error)

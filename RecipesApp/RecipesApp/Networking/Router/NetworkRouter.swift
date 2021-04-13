@@ -10,11 +10,19 @@ import Alamofire
 
 struct Server {
     struct Production {
-        static let baseURL = "https://api.nytimes.com/svc/topstories/v2/"
+        static let baseURL = "http://localhost:5000/"
     }
     
     struct PathComponent {
-        static let json = ".json"
+        static let api = "api"
+        
+        static let auth = "AuthManagement"
+        static let register = "Register"
+        static let login = "Login"
+        
+        static let ingredient = "Ingredient"
+        static let menues = "Menues"
+        static let recipes = "Recipes"
     }
 }
 

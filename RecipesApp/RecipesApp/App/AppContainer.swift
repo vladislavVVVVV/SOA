@@ -9,6 +9,7 @@ import Foundation
 
 final class AppContainer {
     private lazy var appClient: AppClientProtocol = AppClient()
+    private lazy var userManager: UserManager = UserManager(appClient: appClient)
     
     func prepareNewsTabBarController() -> MainTabBarController {
         return MainTabBarController()
@@ -43,6 +44,6 @@ final class AppContainer {
     }
     
     func prepareLoginViewModel(menu: Menu? = nil) -> LoginViewModel {
-        return LoginViewModel(appClient: appClient)
+        return LoginViewModel(userManager: userManager)
     }
 }

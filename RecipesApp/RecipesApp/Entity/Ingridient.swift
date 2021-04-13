@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Ingridient: Equatable {
-    let id: Int?
+struct Ingridient: Equatable, Codable {
+    let ingredientId: Int?
     let name: String?
     let proteins: Int?
     let carbohydrates: Int?

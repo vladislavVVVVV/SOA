@@ -146,7 +146,7 @@ extension MenuesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath ) -> UISwipeActionsConfiguration? {
         let deleteAction = setupDeleteAction { [weak self] in
             guard let self = self else { return }
-            guard let id = self.menuesViewModel.menues[indexPath.row].id else {
+            guard let id = self.menuesViewModel.menues[indexPath.row].menueId else {
                 return
             }
             self.deleteMenues(id: id, indexPaths: [indexPath])
