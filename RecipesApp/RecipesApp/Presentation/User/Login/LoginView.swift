@@ -44,7 +44,12 @@ class LoginViewController: UIViewController {
         button.setTitle("Войти", for: .normal)
         return button
     }()
-
+    
+    private let registerButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Зарегестрироваться", for: .normal)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +57,7 @@ class LoginViewController: UIViewController {
         addSubviews()
         setupConstraints()
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
         descriptionLabel.text = "Войдите в систему!"
     }
 
@@ -71,6 +77,7 @@ class LoginViewController: UIViewController {
         stackView.addArrangedSubview(loginTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(loginButton)
+        stackView.addArrangedSubview(registerButton)
     }
     
     private func setupConstraints() {
@@ -84,13 +91,15 @@ class LoginViewController: UIViewController {
             $0.top.equalTo(descriptionLabel.snp.bottom)
             $0.leading.trailing.equalToSuperview().offset(12)
             $0.trailing.equalToSuperview().offset(-12)
-            $0.height.equalTo(150)
+            $0.height.equalTo(200)
         }
     }
 
     @objc private func login() {
         loginViewModel.loginUser(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] in
             guard let self = self else { return }
+            self.loginTextField.text = ""
+            self.passwordTextField.text = ""
             let vc = MainTabBarController()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
@@ -98,5 +107,10 @@ class LoginViewController: UIViewController {
             guard let self = self else { return }
             self.showDefaultErrorAlert()
         }
+    }
+    
+    @objc private func register() {
+        let vc = RegistrationViewController(appContainer.prepareRegistrationViewModel())
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

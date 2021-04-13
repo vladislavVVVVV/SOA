@@ -16,7 +16,7 @@ final class AppContainer {
     }
     
     func prepareIngridientsViewModel() -> IngridientsViewModel {
-        return IngridientsViewModel(appClient: appClient)
+        return IngridientsViewModel(appClient: appClient, userManager: userManager)
     }
     
     func prepareIngridientViewModel(ingridient: Ingridient) -> IngridientViewModel {
@@ -28,7 +28,7 @@ final class AppContainer {
     }
     
     func prepareMenuesViewModel() -> MenuesViewModel {
-        return MenuesViewModel(appClient: appClient)
+        return MenuesViewModel(appClient: appClient, userManager: userManager)
     }
     
     func prepareMenuViewModel(menu: Menu) -> MenuViewModel {
@@ -43,7 +43,11 @@ final class AppContainer {
         return ChooseRecipeViewModel(appClient: appClient, menu: menu)
     }
     
-    func prepareLoginViewModel(menu: Menu? = nil) -> LoginViewModel {
+    func prepareLoginViewModel() -> LoginViewModel {
         return LoginViewModel(userManager: userManager)
+    }
+    
+    func prepareRegistrationViewModel() -> RegistrationViewModel {
+        return RegistrationViewModel(userManager: userManager)
     }
 }

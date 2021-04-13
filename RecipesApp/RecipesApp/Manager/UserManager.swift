@@ -39,4 +39,8 @@ final class UserManager {
             failure(error)
         }
     }
+
+    func logout() {
+        KeychainManager.shared.connectToken = ConnectToken(accessToken: "", ifv: nil)
+    }
 }

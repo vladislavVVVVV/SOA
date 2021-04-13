@@ -45,6 +45,7 @@ final class IngridientsViewController: UIViewController {
         // Get object of AppTabBarController.
         setupLargeNavigationBarWith(title: "Ingridients")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         addSubviews()
         setupConstraints()
         setupRefreshControl()
@@ -88,6 +89,12 @@ final class IngridientsViewController: UIViewController {
         let viewModel = appContainer.prepareCreateEditIngridient(state: .create)
         let navigationViewController = UINavigationController(rootViewController: CreateEditIngridientViewController(viewModel))
         present(navigationViewController, animated: true, completion: nil)
+    }
+    
+    @objc private func logout() {
+        ingridientsViewModel.logout {
+            tabBarController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     private func getIngridients() {

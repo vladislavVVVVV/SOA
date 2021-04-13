@@ -8,9 +8,17 @@
 import Foundation
 
 final class RegistrationViewModel {
-    let appClient: AppClientProtocol
+    let userManager: UserManager
     
-    init(appClient: AppClientProtocol) {
-        self.appClient = appClient
+    init(userManager: UserManager) {
+        self.userManager = userManager
+    }
+    
+    func registerUser(username: String, email: String, password: String, success: @escaping() -> Void, failure: @escaping(NetworkRequestError) -> Void) {
+        userManager.requsterUser(username: username, email: email, password: password) {
+            success()
+        } failure: { (error) in
+            failure(error)
+        }
     }
 }
