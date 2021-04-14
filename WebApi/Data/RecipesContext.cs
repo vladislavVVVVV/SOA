@@ -1,6 +1,8 @@
 using WebApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace WebApi.Data {
     public class RecipesContext : IdentityDbContext {
@@ -14,7 +16,17 @@ namespace WebApi.Data {
 
         builder.Entity<Ingredient>().ToTable("Ingredients");
         builder.Entity<Recipe>().ToTable("Recipes");
-        builder.Entity<Menue>().ToTable("Menues");
+        builder.Entity<Menue>().ToTable("Menues");;
+        builder.Entity<Recipe>().Property(p => p.IngredientIds)
+            .HasConversion(
+                v => JsonConvert.SerializeObject(v),
+                v => JsonConvert.DeserializeObject<List<int>>(v)
+                );
+        builder.Entity<Menue>().Property(p => p.RecipeIds)
+            .HasConversion(
+                v => JsonConvert.SerializeObject(v),
+                v => JsonConvert.DeserializeObject<List<int>>(v)
+                );
     }
 
     public DbSet<Ingredient> Ingredients { get; set; }

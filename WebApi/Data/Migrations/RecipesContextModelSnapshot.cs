@@ -239,12 +239,7 @@ namespace WebApi.Data.Migrations
                     b.Property<int>("Proteins")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RecipeId")
-                        .HasColumnType("int");
-
                     b.HasKey("IngredientId");
-
-                    b.HasIndex("RecipeId");
 
                     b.ToTable("Ingredients");
                 });
@@ -260,6 +255,9 @@ namespace WebApi.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
+                    b.Property<string>("RecipeIds")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("MenueId");
 
                     b.ToTable("Menues");
@@ -272,16 +270,14 @@ namespace WebApi.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("MenueId")
-                        .HasColumnType("int");
+                    b.Property<string>("IngredientIds")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
                     b.HasKey("RecipeId");
-
-                    b.HasIndex("MenueId");
 
                     b.ToTable("Recipes");
                 });
@@ -335,30 +331,6 @@ namespace WebApi.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WebApi.Models.Ingredient", b =>
-                {
-                    b.HasOne("WebApi.Models.Recipe", null)
-                        .WithMany("Ingredients")
-                        .HasForeignKey("RecipeId");
-                });
-
-            modelBuilder.Entity("WebApi.Models.Recipe", b =>
-                {
-                    b.HasOne("WebApi.Models.Menue", null)
-                        .WithMany("Recipes")
-                        .HasForeignKey("MenueId");
-                });
-
-            modelBuilder.Entity("WebApi.Models.Menue", b =>
-                {
-                    b.Navigation("Recipes");
-                });
-
-            modelBuilder.Entity("WebApi.Models.Recipe", b =>
-                {
-                    b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618
         }
