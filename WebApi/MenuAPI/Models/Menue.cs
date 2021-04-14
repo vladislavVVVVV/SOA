@@ -9,7 +9,7 @@ namespace WebApi.Models {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MenueId { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Recipe> Recipes { get; set; }
+        public List<int> RecipeIds { get; set; } = new List<int>();
     }
 
 }

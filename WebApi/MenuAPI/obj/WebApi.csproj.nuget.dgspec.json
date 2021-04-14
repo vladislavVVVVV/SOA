@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/MenuAPI/WebApi.csproj": {}
+    "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/WebApi.csproj": {}
   },
   "projects": {
-    "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/MenuAPI/WebApi.csproj": {
+    "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/MenuAPI/WebApi.csproj",
+        "projectUniqueName": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/MenuAPI/WebApi.csproj",
+        "projectPath": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/WebApi.csproj",
         "packagesPath": "/Users/ilya_valevich/.nuget/packages/",
-        "outputPath": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/MenuAPI/obj/",
+        "outputPath": "/Users/ilya_valevich/Desktop/Not Work/Soarh/SOA/WebApi/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -62,10 +62,6 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
-            },
-            "Ocelot": {
-              "target": "Package",
-              "version": "[17.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

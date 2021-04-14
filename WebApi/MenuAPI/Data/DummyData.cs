@@ -20,11 +20,11 @@ namespace WebApi.Data
 
                 var ingredients = DummyData.GetIngredients().ToArray();
                 context.Ingredients.AddRange(ingredients);
-                // context.SaveChanges();
+                context.SaveChanges();
 
                 var recipes = DummyData.GetRecipes(context).ToArray();
                 context.Recipes.AddRange(recipes);
-                // context.SaveChanges();
+                context.SaveChanges();
 
                 var menues = DummyData.GetMenues(context).ToArray();
                 context.Menues.AddRange(menues);
@@ -47,15 +47,15 @@ namespace WebApi.Data
             List<Recipe> recipes = new List<Recipe>() {
             new Recipe {
                 Name = "TestName 1",
-                Ingredients = new List<Ingredient>(db.Ingredients.Take(2))
+                IngredientIds = new List<int>() {1,2,3}
             },
             new Recipe {
                 Name = "TestName 2",
-                Ingredients = new List<Ingredient>(db.Ingredients.OrderBy(m => m.Name).Skip(1).Take(2))
+                IngredientIds = new List<int>(db.Ingredients.Take(2).Select(i => i.IngredientId))
             },
             new Recipe {
                 Name = "TestName 3",
-                Ingredients = new List<Ingredient>(db.Ingredients.OrderBy(m => m.Fats).Take(2))
+                IngredientIds = new List<int>(db.Ingredients.OrderBy(m => m.Name).Select(i => i.IngredientId))
             },
             };
             return recipes;
@@ -66,15 +66,15 @@ namespace WebApi.Data
             List<Menue> menues = new List<Menue>() {
             new Menue {
                 Name = "TestName 1",
-                Recipes = new List<Recipe>(db.Recipes.Take(2))
+                RecipeIds = new List<int>(db.Recipes.Take(2).Select(i => i.RecipeId).ToList())
             },
             new Menue {
                 Name = "TestName 2",
-                Recipes = new List<Recipe>(db.Recipes.OrderBy(m => m.Name).Skip(1).Take(2))
+                RecipeIds = new List<int>(db.Recipes.OrderBy(m => m.Name).Skip(1).Take(2).Select(i => i.RecipeId).ToList())
             },
             new Menue {
                 Name = "TestName 3",
-                Recipes = new List<Recipe>(db.Recipes.OrderBy(m => m.Name).Take(2))
+                RecipeIds = new List<int>(db.Recipes.OrderBy(m => m.Name).Take(2).Select(i => i.RecipeId).ToList())
             },
             };
             return menues;
